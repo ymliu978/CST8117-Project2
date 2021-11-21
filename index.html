@@ -4,72 +4,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- author -->
     <meta name="author" content="Team 3 21F_CST8117 WDIA">
     <meta name="email" content="ymliu97@gmail.com">
-    <title>Le Petit Gril</title>
+    <!-- stylesheet -->
     <link href="styles/main.css" rel="stylesheet" type="text/css">
+    <!-- scripts -->
     <script src="scripts/main.js" defer></script>
-
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Stoke&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rasa&display=swap" rel="stylesheet">
+    <!-- favicon -->
+    <link rel="icon"
+        href="https://img.icons8.com/external-dreamstale-lineal-dreamstale/32/000000/external-plate-kitchen-bar-dreamstale-lineal-dreamstale.png">
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/a9c8119266.js" crossorigin="anonymous"></script>
+    <!-- title -->
+    <title>Le Petit Gril</title>
 </head>
 
 <body>
-    <div class="wrapper">
+    <!-- header -->
+    <header id="header">
+        <div class="logo">
+            <h2>peter logan's</h2>
+        </div>
+
         <nav>
-            <a href="index.html">HOME</a>
-            <a href="about.html">ABOUT</a>
-            <a href="rsnv.html">RSNV</a>
-            <a href="menu.html">MENU</a>
+            <ul>
+                <li>
+                    <a href="index.html">home</a>
+                </li>
+                <li>
+                    <a href="about.html">about</a>
+                </li>
+                <li>
+                    <a href="rsnv.html">reservation</a>
+                </li>
+                <li>
+                    <a href="menu.html">menu</a>
+                </li>
+                <li>
+                    <a href="contact.html">contact</a>
+                </li>
+            </ul>
         </nav>
-        <header>
-            <hr>LOGO IMAGE HERE
+
+        <div class="features">
+            <i class="fas fa-moon"></i>
+
+            <i class="fas fa-language"></i>
+        </div>
+    </header>
+
+    <main>
+        <section class="home-content">
+            <img src="https://images.unsplash.com/photo-1512805147242-c3e79caf64bf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3870&q=80"
+                alt="banner">
+        </section>
+
+        <section>
+            <table>
+                <tr>
+                    <td>
+                        <h4>BUSINESS HOURS</h4>
+                    </td>
+                    <td>
+                        <h4>ADDRESS</h4>
+                    </td>
+                    <td>
+                        <h4>CONTACT</h4>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        <hr>
+        <section>
+            <table>
+                <tr>
+                    <td>
+                        RSNV
+                    </td>
+                    <td rowspan="2">
+                        MENU
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        ABOUT
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <hr>
+        <div id="address">
+            10 STREET ST, OTTAWA, ON, K1A 1Z1<br>
+            111-1111-1111<br>
+            INFO@GMAIL.COM<br>
             <hr>
-        </header>
-        <main>
-            <section>
-                <table>
-                    <tr>
-                        <td>
-                            <h4>BUSINESS HOURS</h4>
-                        </td>
-                        <td>
-                            <h4>ADDRESS</h4>
-                        </td>
-                        <td>
-                            <h4>CONTACT</h4>
-                        </td>
-                    </tr>
-                </table>
-            </section>
-            <hr>
-            <section>
-                <table>
-                    <tr>
-                        <td>
-                            RSNV
-                        </td>
-                        <td rowspan="2">
-                            MENU
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            ABOUT
-                        </td>
-                    </tr>
-                </table>
-            </section>
-        </main>
-        <footer>
-            <hr>
-            <div id="address">
-                10 STREET ST, OTTAWA, ON, K1A 1Z1<br>
-                111-1111-1111<br>
-                INFO@GMAIL.COM<br>
-                <hr>
-                &COPY STEAK HOUSE BAR AND GRILL | DESIGN BY YML
-            </div>
-        </footer>
-    </div>
+            &COPY STEAK HOUSE BAR AND GRILL | DESIGN BY YML
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
 </body>
 
 </html>
