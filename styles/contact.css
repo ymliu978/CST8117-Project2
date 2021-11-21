@@ -1,0 +1,20 @@
+.container {
+    height: 100vh;
+}
+
+.container.contact-us {
+    display: flex;
+    flex-direction: row;
+}
+
+.contact-us div.left-container {
+    flex: 1;
+    background-color: burlywood;
+    height: 100%;
+}
+
+.contact-us div.right-container {
+    flex: 1;
+    background-color: coral;
+    height: 100%;
+}
