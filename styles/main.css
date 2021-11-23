@@ -1,3 +1,10 @@
+/* declare global CSS variables */
+:root {
+    --header-menu-item-color: rgba(79, 49, 48, 0.95);
+    --header-scroll-bg-color: rgba(0, 0, 0, 0.5);
+    --header-border-color: rgba(255, 255, 255, 0.5);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -22,11 +29,13 @@ header {
     align-items: center;
     background-color: transparent;
     transition: 0.3s ease;
-    border-bottom: rgba(255, 255, 255, 0.5) 1px solid;
+    border-bottom: var(--header-border-color) 1px solid;
+    padding: 40px 0 40px 0;
 }
 
 .header-scroll {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: var(--header-border-color);
+    padding: 0;
 }
 
 header div.logo h2 {
@@ -50,7 +59,7 @@ header nav ul li {
 }
 header nav ul li:hover {
     cursor: pointer;
-    background-color: rgba(79, 49, 48, 0.95);
+    background-color: var(--header-menu-item-color);
 }
 
 header nav ul li a {
@@ -66,6 +75,23 @@ header div.features {
 header div.features i {
     padding: 16px;
     font-size: 1.6em;
+}
+
+header .responsive-menu i {
+    color: white;
+}
+
+.responsive-menu-overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    right: 0;
+    background-color: black;
+    /* disable horizontal scroll */
+    overflow-x: hidden;
+    transition: 0.5s;
 }
 
 main {
@@ -84,4 +110,33 @@ section.home-content img {
     header div.features {
         display: none;
     }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 200px 100px 1fr;
+    grid-template-rows: 100px 200px;
+    place-items: center;
+    background-color: coral;
+}
+
+.grid i {
+    font-size: 2.4rem;
+}
+
+.flex-row-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: cornflowerblue;
+}
+
+.flex-column-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2.4rem;
+    width: 100%;
 }
