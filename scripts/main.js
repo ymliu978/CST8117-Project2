@@ -1,3 +1,5 @@
+// Sebastian modified this.
+
 var header = document.querySelector("#header");
 var responsiveMenuOpen = document.querySelector("#responsive-menu-open");
 var responsiveMenuClose = document.querySelector("#overlay-menu-close");
