@@ -31,7 +31,7 @@ responsiveMenuClose.addEventListener("click", function () {
         // remove background styling from header
         header.classList.remove("header-scroll");
     }
-    // close responsive overlay menu open button
+    // close responsive overlay
     responsiveMenuOverlay.style.height = "0";
     // reset body scroll
     document.body.style.overflow = "auto";
@@ -39,4 +39,18 @@ responsiveMenuClose.addEventListener("click", function () {
     responsiveMenuClose.style.display = "none";
     // show overlay menu open button
     responsiveMenuOpen.style.display = "block";
+});
+
+// hide responsive menu when viewport width is greater than 768px (for desktop)
+window.addEventListener("resize", function () {
+    if (window.innerWidth > 768) {
+        responsiveMenuOpen.style.display = "none";
+        responsiveMenuClose.style.display = "none";
+        // close responsive overlay
+        responsiveMenuOverlay.style.height = "0";
+        // reset body scroll
+        document.body.style.overflow = "auto";
+    } else {
+        responsiveMenuOpen.style.display = "block";
+    }
 });
