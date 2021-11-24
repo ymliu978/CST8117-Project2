@@ -19,6 +19,7 @@ body {
     font-size: 62.5%;
 }
 
+/* header */
 header {
     width: 100%;
     height: 64px;
@@ -83,7 +84,9 @@ header div.features i {
 header .responsive-menu i {
     color: white;
 }
+/* header */
 
+/* responsive-menu */
 #responsive-menu-open,
 #overlay-menu-close {
     padding: 0 32px;
@@ -160,10 +163,10 @@ header .responsive-menu i {
 .responsive-menu-overlay .overlay-content .features i:focus {
     background-color: var(--header-responsive-menu-item-hover-color);
 }
+/* responsive-menu */
 
 main {
     margin-top: 0;
-    height: 1000px;
 }
 
 section.home-content img {
@@ -178,14 +181,81 @@ section.home-content-textinfo {
     text-align: center;
     font-weight: 200;
     font-size: 1.8em;
-
 }
 
-section div.textinfo-heading{
+section div.textinfo-heading {
     border: 1px solid gray;
     text-transform: uppercase;
     padding: 5px;
 }
+
+/* footer */
+footer {
+    padding: 2.5em;
+    background-color: var(--header-menu-item-color);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer div.social-media {
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+footer div.social-media i {
+    cursor: pointer;
+    font-size: 1.8em;
+    margin: 0 8px;
+    padding: 8px;
+    border: white 1px solid;
+    border-radius: 50%;
+    transition: 0.3s ease;
+}
+
+footer div.social-media i:hover {
+    background-color: var(--header-scroll-bg-color);
+}
+
+footer div.social-media a {
+    color: white;
+}
+
+footer div.address {
+    margin-bottom: 16px;
+    text-align: left;
+    font-size: 1.4em;
+    font-weight: 200;
+}
+
+footer div.address p i {
+    font-size: 0.8em;
+    padding: 8px 4px;
+}
+
+footer div.address a {
+    font-weight: 200;
+    color: white;
+}
+footer div.address a:hover {
+    text-decoration: underline;
+}
+
+footer div.address hr {
+    margin: 0.1em auto;
+}
+
+footer div.address p span.gap {
+    padding-left: 12px;
+    padding-right: 4px;
+}
+
+footer hr {
+    width: 100%;
+    margin-bottom: 16px;
+}
+/* footer */
 
 /* responsive stylings */
 @media screen and (max-width: 768px) {
@@ -198,33 +268,16 @@ section div.textinfo-heading{
     #overlay-menu-open {
         display: block;
     }
-}
 
-.grid {
-    display: grid;
-    grid-template-columns: 200px 100px 1fr;
-    grid-template-rows: 100px 200px;
-    place-items: center;
-    background-color: coral;
-}
+    .home-content-textinfo {
+        flex-direction: column;
+    }
 
-.grid i {
-    font-size: 2.4rem;
-}
+    .home-content-textinfo > div {
+        margin-bottom: 1.2em;
+    }
 
-.flex-row-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: cornflowerblue;
-}
-
-.flex-column-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    font-size: 2.4rem;
-    width: 100%;
+    .home-content-textinfo > div:last-child {
+        margin-bottom: 0;
+    }
 }
