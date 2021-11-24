@@ -134,7 +134,7 @@ header .responsive-menu i {
     flex-direction: column;
     justify-content: center;
     overflow-y: scroll;
-    top: 4rem;
+    /* top: 4rem; */
 }
 
 .responsive-menu-overlay .overlay-content li {
