@@ -1,8 +1,9 @@
 /* declare global CSS variables */
 :root {
     --header-menu-item-color: rgba(79, 49, 48, 0.95);
-    --header-scroll-bg-color: rgba(0, 0, 0, 0.5);
+    --header-scroll-bg-color: rgba(70, 40, 40, 0.9);
     --header-border-color: rgba(255, 255, 255, 0.5);
+    --header-responsive-menu-item-hover-color: rgba(0, 0, 0, 0.45);
 }
 
 * {
@@ -30,12 +31,14 @@ header {
     background-color: transparent;
     transition: 0.3s ease;
     border-bottom: var(--header-border-color) 1px solid;
-    padding: 40px 0 40px 0;
+    /* TODO: increase padding */
+    /* padding: 40px 0 40px 0; */
 }
 
 .header-scroll {
-    background-color: var(--header-border-color);
-    padding: 0;
+    background-color: var(--header-scroll-bg-color);
+    /* TODO: decrease padding on scroll */
+    /* padding: 0; */
 }
 
 header div.logo h2 {
@@ -81,17 +84,81 @@ header .responsive-menu i {
     color: white;
 }
 
+#responsive-menu-open,
+#overlay-menu-close {
+    padding: 0 32px;
+    font-size: 1.6rem;
+    color: white;
+    display: none;
+}
+
 .responsive-menu-overlay {
-    height: 100%;
+    display: flex;
+    align-items: center;
+    height: 0;
     width: 100%;
     position: fixed;
     z-index: 99;
+    top: 64px;
     left: 0;
     right: 0;
-    background-color: black;
-    /* disable horizontal scroll */
+    background-color: var(--header-scroll-bg-color);
     overflow-x: hidden;
     transition: 0.5s;
+}
+
+.responsive-menu-overlay .overlay-header {
+    color: white;
+    height: 6.4rem;
+    font-size: 2.4rem;
+    position: relative;
+}
+
+.responsive-menu-overlay .overlay-header i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 32px;
+}
+
+.responsive-menu-overlay .overlay-content {
+    position: relative;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-y: scroll;
+}
+
+.responsive-menu-overlay .overlay-content li {
+    padding: 32px 16px;
+}
+
+.responsive-menu-overlay .overlay-content li a {
+    color: white;
+    font-weight: 200;
+    font-size: 2.2em;
+    text-transform: capitalize;
+}
+
+.responsive-menu-overlay .overlay-content .features {
+    padding: 32px 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.responsive-menu-overlay .overlay-content .features i {
+    padding: 16px;
+    font-size: 1.8em;
+    color: white;
+    border-radius: 50%;
+    transition: 0.3s ease;
+}
+.responsive-menu-overlay .overlay-content .features i:hover,
+.responsive-menu-overlay .overlay-content .features i:focus {
+    background-color: var(--header-responsive-menu-item-hover-color);
 }
 
 main {
@@ -109,6 +176,11 @@ section.home-content img {
     header nav,
     header div.features {
         display: none;
+    }
+
+    #responsive-menu-open,
+    #overlay-menu-open {
+        display: block;
     }
 }
 
