@@ -80,6 +80,8 @@ header div.features {
 header div.features i {
     padding: 1rem;
     font-size: 1.6em;
+    user-select: none;
+    cursor: pointer;
 }
 
 header .responsive-menu i {
