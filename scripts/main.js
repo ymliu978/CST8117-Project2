@@ -111,6 +111,10 @@ function enableLightTheme() {
     localStorage.theme = "light";
     // Setting the body background to white.
     document.body.style.backgroundColor = "white";
+    // Setting both of the corresponding buttons to black (for contrast).
+    themeToggleButtons.forEach((button) => {
+        button.style.color = 'white';
+    });
     // Setting the textinfo-headings to light mode.
     document.querySelectorAll("div[class='textinfo-heading dark-mode-heading']").forEach((heading) => {
         Array.from(heading.parentNode.children).forEach((child) => {
@@ -125,7 +129,11 @@ function enableDarkTheme() {
     localStorage.theme = "dark";
     // Setting the body background to black.
     document.body.style.backgroundColor = "black";
-    // Setting the textinfo-headings to dark mode.
+    // Setting both of the corresponding buttons to black.
+    themeToggleButtons.forEach((button) => {
+        button.style.color = 'black';
+    });
+    // Setting the textinfo-headings to white (for contrast).
     document.querySelectorAll("div[class='textinfo-heading']").forEach((heading) => {
         Array.from(heading.parentNode.children).forEach((child) => {
             child.classList == "textinfo-heading" ? child.classList = "textinfo-heading dark-mode-heading" : child.classList = "dark-mode-text";
