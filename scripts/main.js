@@ -54,3 +54,5 @@ window.addEventListener("resize", function () {
         responsiveMenuOpen.style.display = "block";
     }
 });
+
+// proof of concept for multiple languages
