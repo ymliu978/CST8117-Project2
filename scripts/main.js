@@ -1,7 +1,54 @@
+var languageData = {
+    navigation: {
+        menu: {
+            en: ["home", "about", "reservation", "menu", "contact"],
+            fr: ["domicile", "À propos", "réservation", "menu", "contact"],
+        },
+    },
+    home: {
+        content: {
+            en: [
+                ["hours", "Tuesday - Sunday", "11AM - 10PM"],
+                ["address", "70 Grand Ave", "Brooklyn, New York"],
+                ["contact", "917-111-2222", "info@peterlogan.com"],
+            ],
+            fr: [
+                ["les heures", "Mardi - Dimanche", "11h - 22h"],
+                ["adresse", "70, Avenue Grand", "Brooklyn, New York"],
+                ["contact", "917-111-2222", "info@peterlogan.com"],
+            ],
+        },
+    },
+    footer: {
+        address: {
+            en: "70 Grand Ave, Brooklyn, New York",
+            fr: "70 Avenue Grand, Brooklyn, New York",
+        },
+        copyright: {
+            en: "DESIGN BY YML",
+            fr: "CONCEPTION PAR YML",
+        },
+        company: {
+            en: "PETER LOGAN'S STEAK HOUSE",
+            fr: "STEAK HOUSE DE PETER LOGAN",
+        },
+    },
+};
+
 var header = document.querySelector("#header");
 var responsiveMenuOpen = document.querySelector("#responsive-menu-open");
 var responsiveMenuClose = document.querySelector("#overlay-menu-close");
 var responsiveMenuOverlay = document.querySelector(".responsive-menu-overlay");
+var navigationMenu = document.querySelector(".navigation-menu");
+var selectLanguage = document.querySelector(".select-language");
+var selectLanguageResponsive = document.querySelector(
+    ".select-language-responsive"
+);
+var homeContentText = document.querySelectorAll(".home-content-text");
+var footerAddressLine = document.querySelector(".footer-address-line");
+var footerCopyright = document.querySelector(".footer-copyright");
+var footerCompany = document.querySelector(".footer-company");
+var languagesDropdown = document.querySelector(".dropdown-content");
 
 window.addEventListener("scroll", function () {
     if (window.scrollY === 0) {
@@ -56,3 +103,86 @@ window.addEventListener("resize", function () {
 });
 
 // proof of concept for multiple languages
+
+// language
+var language = localStorage.getItem("language");
+// if localStorage language is null, set the default languauge to "en"
+if (language === null) {
+    language = "en";
+}
+// initialize language
+updateLanguage(language);
+
+// update language on HTML
+function updateLanguage(lang = "en") {
+    // navigation menu
+    const menuLength = languageData.navigation.menu.en.length;
+    for (var index = 0; index < menuLength; index++) {
+        navigationMenu.children[index].children[0].textContent =
+            languageData.navigation.menu[lang][index];
+    }
+
+    // home -> content text
+    for (var index = 0; index < homeContentText.length; index++) {
+        homeContentText[index].children[0].textContent =
+            languageData.home.content[lang][index][0];
+        homeContentText[index].children[1].textContent =
+            languageData.home.content[lang][index][1];
+        homeContentText[index].children[2].textContent =
+            languageData.home.content[lang][index][2];
+    }
+
+    // footer
+    footerAddressLine.textContent = languageData.footer.address[lang];
+    footerCopyright.textContent = languageData.footer.copyright[lang];
+    footerCompany.textContent = languageData.footer.company[lang];
+
+    // update <select>
+    handleSelectOptions(lang);
+}
+
+// handle language select
+selectLanguage.addEventListener("change", function (e) {
+    const newLanguage = e.target.value;
+    updateLanguageOnSelect(newLanguage);
+
+    if (newLanguage === "en") {
+        var en = selectLanguage.options[0];
+        en.setAttribute("selected", true);
+    } else if (newLanguage === "fr") {
+        var fr = selectLanguage.options[1];
+        fr.setAttribute("selected", true);
+    }
+});
+
+// handle language select - responsive menu
+selectLanguageResponsive.addEventListener("change", function (e) {
+    const newLanguage = e.target.value;
+    updateLanguageOnSelect(newLanguage);
+
+    handleSelectOptions(newLanguage);
+});
+
+function updateLanguageOnSelect(newLanguage) {
+    // save new language
+    localStorage.setItem("language", newLanguage);
+    updateLanguage(newLanguage);
+
+    handleSelectOptions(newLanguage);
+}
+
+function handleSelectOptions(newLanguage) {
+    if (newLanguage === "en") {
+        var en = selectLanguage.options[0];
+        en.setAttribute("selected", true);
+
+        var enResponsive = selectLanguageResponsive.options[0];
+        enResponsive.setAttribute("selected", true);
+    } else if (newLanguage === "fr") {
+        var fr = selectLanguage.options[1];
+        fr.setAttribute("selected", true);
+
+        var frResponsive = selectLanguageResponsive.options[1];
+        frResponsive.setAttribute("selected", true);
+    }
+}

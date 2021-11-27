@@ -81,6 +81,13 @@ header div.features i {
     padding: 1rem;
     font-size: 1.6em;
 }
+header div.features i:hover {
+    background-color: var(--header-menu-item-color);
+}
+
+header div.features i.select-language {
+    cursor: pointer;
+}
 
 header .responsive-menu i {
     color: white;
@@ -160,15 +167,49 @@ header .responsive-menu i {
     color: white;
     border-radius: 50%;
     transition: 0.3s ease;
+    cursor: pointer;
 }
 .responsive-menu-overlay .overlay-content .features i:hover,
 .responsive-menu-overlay .overlay-content .features i:focus {
+    background-color: var(--header-responsive-menu-item-hover-color);
+}
+
+.select-language {
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--header-scroll-bg-color);
+    color: white;
+    background-color: var(--header-scroll-bg-color);
+    border-radius: 4px;
+}
+.select-language:hover {
     background-color: var(--header-responsive-menu-item-hover-color);
 }
 /* responsive-menu */
 
 main {
     margin-top: 0;
+}
+
+section.home-content > div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+section.home-content > div h1 {
+    color: white;
+    font-family: "Stoke", serif;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    background-color: var(--header-menu-item-color);
+    padding: 0.5rem;
+}
+section.home-content > div h1:last-child {
+    margin-bottom: 0;
 }
 
 section.home-content img {
