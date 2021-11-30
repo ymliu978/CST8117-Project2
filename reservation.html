@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,93 +12,202 @@
     <script src="scripts/reservation.js" defer></script>
 
 </head>
+
 <body>
-    <div class="wrapper">      
+    <!-- header -->
+    <header id="header">
+        <div class="logo">
+            <h2>peter logan's</h2>
+        </div>
+
         <nav>
-            <a href="index.html">HOME</a>
-            <a href="about.html">ABOUT</a>
-            <a href="reservation.html">RESERVATION</a>
-            <a href="menu.html">MENU</a>
-            <a href="contact.html">CONTACT</a>
+            <ul class="navigation-menu">
+                <li>
+                    <a href="index.html"></a>
+                    <!-- highlight navigation menu option -->
+                    <div class="active-menu-indicator"></div>
+                </li>
+                <li>
+                    <a href="about.html"></a>
+                </li>
+                <li>
+                    <a href="reservation.html"></a>
+                </li>
+                <li>
+                    <a href="menu.html"></a>
+                </li>
+                <li>
+                    <a href="contact.html"></a>
+                </li>
+            </ul>
         </nav>
-        <header>
-            <hr> IMAGE HERE
-        </header> 
-        <main>
-            <hr>
-            <section>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam 
-                    consequat elit id sagittis rutrum. Fusce porttitor felis sit amet 
-                    elit placerat, et rhoncus risus luctus. Etiam id dictum urna. 
-                    Pellentesque congue, odio non euismod scelerisque, lectus libero 
-                    lacinia velit, vel tristique ligula nisi eget ipsum. Phasellus arcu 
-                    sem, efficitur ut nisl id, vehicula ultricies sem. Nam eget 
-                    interdum nisl. Mauris ullamcorper commodo aliquet. Pellentesque 
-                    vitae nulla magna. Aliquam auctor tortor quis magna iaculis, quis 
-                    aliquet urna pretium. Fusce a gravida dui, vitae ullamcorper ligula. 
-                    Phasellus et nibh ut risus eleifend dictum sit amet ut neque
-                </p>
-            </section>
-            <section>
-                <hr>
-                <button id="westwing" onclick="">
-                    WEST WING
-                </button>
-                <button id="parkavenue" onclick="">
-                    PARK AVENUE
-                </button>
-                <button id="eastwing" onclick="">
-                    EAST WING
-                </button>
-            </section>
-            <section>
-                <hr>SLIDE GALLERY HERE<hr>
-            </section>
-            <p>INQUIRY</p>
-            <section class="rowflex" style="display: flex; flex-wrap: wrap;">
-                <div class="column" style="float: left; width: 30%;">
-                    <div class="row">
-                        <label for="name">NAME*</label>
-                        <input type="text" id="name" name="name">
-                        <span class="alert" id="nameError"></span>
-                    </div>
-                    <div class="row">
-                        <label for="email">EMAIL</label>
-                        <input type="text" id="email" name="email"> 
-                    </div>
-                </div>
-                <div class="column" style="float: left; width: 30%;">
-                    <div class="row">
-                        <label for="company">COMPANY</label>
-                        <input type="text" id="company" name="company">
-                    </div>
-                    <div class="row">
-                        <label for="phone">PHONE</label>
-                        <input type="text" id="phone" name="phone"> 
-                    </div>
-                </div>
-                <div class="column" style="float: left; width: 50%;">
-                    <div class="row">
-                        <label for="content">Drop us more details</label>
-                        <textarea id="content" name="content" placeholder="Further information.." style="height:50px"></textarea>
-                    </div>
-                    <div class="row">
-                        <input type="submit" value="Send">
-                    </div>
-                </div>
-                
-            </section>
-        </main>
-        <footer>
-            <hr>
-            <div id="address">
-                10 STREET ST, OTTAWA, ON, K1A 1Z1<br>
-                111-1111-1111<br>
-                INFO@GMAIL.COM<br><hr>  
-                &COPY STEAK HOUSE BAR AND GRILL | DESIGN BY YML
-            </div>        
-        </footer>
+
+        <div id="responsive-menu-open">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <div id="overlay-menu-close">
+            <i class="fas fa-times"></i>
+        </div>
+
+        <div class="features">
+            <i class="fas fa-moon"></i>
+            <!-- <i class="fas fa-language"></i> -->
+            <select class="select-language">
+                <option value="en">
+                    EN
+                </option>
+                <option value="fr">
+                    FR
+                </option>
+            </select>
+        </div>
+    </header>
+
+    <!-- responsive header -->
+    <div class="responsive-menu-overlay">
+        <ul class="overlay-content navigation-menu">
+            <li>
+                <a href="index.html"></a>
+            </li>
+            <li>
+                <a href="about.html"></a>
+            </li>
+            <li>
+                <a href="reservation.html"></a>
+            </li>
+            <li>
+                <a href="menu.html"></a>
+            </li>
+            <li>
+                <a href="contact.html"></a>
+            </li>
+            <div class="features">
+                <i class="fas fa-moon"></i>
+
+                <!-- <i class="fas fa-language"></i> -->
+                <select class="select-language-responsive">
+                    <option value="en">
+                        EN
+                    </option>
+                    <option value="fr">
+                        FR
+                    </option>
+                </select>
+            </div>
+        </ul>
     </div>
+
+    <main>
+        <hr>
+        <section>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                consequat elit id sagittis rutrum. Fusce porttitor felis sit amet
+                elit placerat, et rhoncus risus luctus. Etiam id dictum urna.
+                Pellentesque congue, odio non euismod scelerisque, lectus libero
+                lacinia velit, vel tristique ligula nisi eget ipsum. Phasellus arcu
+                sem, efficitur ut nisl id, vehicula ultricies sem. Nam eget
+                interdum nisl. Mauris ullamcorper commodo aliquet. Pellentesque
+                vitae nulla magna. Aliquam auctor tortor quis magna iaculis, quis
+                aliquet urna pretium. Fusce a gravida dui, vitae ullamcorper ligula.
+                Phasellus et nibh ut risus eleifend dictum sit amet ut neque
+            </p>
+        </section>
+        <section>
+            <hr>
+            <button id="westwing" onclick="">
+                WEST WING
+            </button>
+            <button id="parkavenue" onclick="">
+                PARK AVENUE
+            </button>
+            <button id="eastwing" onclick="">
+                EAST WING
+            </button>
+        </section>
+        <section>
+            <hr>SLIDE GALLERY HERE
+            <hr>
+        </section>
+        <p>INQUIRY</p>
+        <section class="rowflex" style="display: flex; flex-wrap: wrap;">
+            <div class="column" style="float: left; width: 30%;">
+                <div class="row">
+                    <label for="name">NAME*</label>
+                    <input type="text" id="name" name="name">
+                    <span class="alert" id="nameError"></span>
+                </div>
+                <div class="row">
+                    <label for="email">EMAIL</label>
+                    <input type="text" id="email" name="email">
+                </div>
+            </div>
+            <div class="column" style="float: left; width: 30%;">
+                <div class="row">
+                    <label for="company">COMPANY</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="row">
+                    <label for="phone">PHONE</label>
+                    <input type="text" id="phone" name="phone">
+                </div>
+            </div>
+            <div class="column" style="float: left; width: 50%;">
+                <div class="row">
+                    <label for="content">Drop us more details</label>
+                    <textarea id="content" name="content" placeholder="Further information.."
+                        style="height:50px"></textarea>
+                </div>
+                <div class="row">
+                    <input type="submit" value="Send">
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-media">
+            <a href="https://www.instagram.com/explore/tags/steakhouse/">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="https://www.yelp.ca/c/toronto/steak">
+                <i class="fab fa-yelp"></i>
+            </a>
+
+            <a href="https://twitter.com/SteakHouse9_">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+
+        <div class="address">
+            <div>
+                <i class="fas fa-phone-alt"></i>
+                <a href="tel:917-111-2222">917-111-2222</a>
+                <span class="gap">•</span>
+            </div>
+            <div>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:info@gmail.com">
+                    info@peterlogan.com
+                </a>
+                <span class="gap">•</span>
+            </div>
+            <div>
+                <i class="fas fa-location-arrow"></i>
+                <span class="footer-address-line">70 Grand Ave, Brooklyn, New York</span>
+            </div>
+        </div>
+        <hr>
+        </div>
+
+        <div id="address">
+            <span class="footer-company">&COPY PETER LOGAN'S STEAK HOUSE</span> | <span class="footer-copyright">DESIGN
+                BY YML</span>
+        </div>
+    </footer>
 </body>
+
 </html>
