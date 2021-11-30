@@ -1,0 +1,72 @@
+{
+    "navigation": {
+        "menu": {
+            "en": [
+                "home",
+                "about",
+                "reservation",
+                "menu",
+                "contact"
+            ],
+            "fr": [
+                "domicile",
+                "À propos",
+                "réservation",
+                "menu",
+                "contact"
+            ]
+        }
+    },
+    "home": {
+        "content": {
+            "en": [
+                [
+                    "hours",
+                    "Tuesday - Sunday",
+                    "11AM - 10PM"
+                ],
+                [
+                    "hours",
+                    "Tuesday - Sunday",
+                    "11AM - 10PM"
+                ],
+                [
+                    "hours",
+                    "Tuesday - Sunday",
+                    "11AM - 10PM"
+                ]
+            ],
+            "fr": [
+                [
+                    "les heures",
+                    "Mardi - Dimanche",
+                    "11h - 22h"
+                ],
+                [
+                    "les heures",
+                    "Mardi - Dimanche",
+                    "11h - 22h"
+                ],
+                [
+                    "les heures",
+                    "Mardi - Dimanche",
+                    "11h - 22h"
+                ]
+            ]
+        }
+    },
+    "footer": {
+        "address": {
+            "en": "70 Grand Ave, Brooklyn, New York",
+            "fr": "70 Avenue Grand, Brooklyn, New York"
+        },
+        "copyright": {
+            "en": "DESIGN BY YML",
+            "fr": "CONCEPTION PAR YML"
+        },
+        "company": {
+            "en": "PETER LOGAN'S STEAK HOUSE",
+            "fr": "STEAK HOUSE DE PETER LOGAN"
+        }
+    }
+}

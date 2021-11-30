@@ -21,7 +21,7 @@
     <!-- fontawesome -->
     <script src="https://kit.fontawesome.com/a9c8119266.js" crossorigin="anonymous"></script>
     <!-- title -->
-    <title>Le Petit Gril</title>
+    <title>Peter Logan's Steak House</title>
 </head>
 
 <body>
@@ -32,21 +32,21 @@
         </div>
 
         <nav>
-            <ul>
+            <ul class="navigation-menu">
                 <li>
-                    <a href="index.html">home</a>
+                    <a href="index.html"></a>
                 </li>
                 <li>
-                    <a href="about.html">about</a>
+                    <a href="about.html"></a>
                 </li>
                 <li>
-                    <a href="reservation.html">reservation</a>
+                    <a href="reservation.html"></a>
                 </li>
                 <li>
-                    <a href="menu.html">menu</a>
+                    <a href="menu.html"></a>
                 </li>
                 <li>
-                    <a href="contact.html">contact</a>
+                    <a href="contact.html"></a>
                 </li>
             </ul>
         </nav>
@@ -61,57 +61,98 @@
 
         <div class="features">
             <i class="fas fa-moon"></i>
-            <i class="fas fa-language"></i>
+            <!-- <i class="fas fa-language"></i> -->
+            <select class="select-language">
+                <option value="en">
+                    EN
+                </option>
+                <option value="fr">
+                    FR
+                </option>
+            </select>
         </div>
     </header>
 
 
     <div class="responsive-menu-overlay">
-        <ul class="overlay-content">
+        <ul class="overlay-content navigation-menu">
             <li>
-                <a href="index.html">home</a>
+                <a href="index.html"></a>
             </li>
             <li>
-                <a href="about.html">about</a>
+                <a href="about.html"></a>
             </li>
             <li>
-                <a href="reservation.html">reservation</a>
+                <a href="reservation.html"></a>
             </li>
             <li>
-                <a href="menu.html">menu</a>
+                <a href="menu.html"></a>
             </li>
             <li>
-                <a href="contact.html">contact</a>
+                <a href="contact.html"></a>
             </li>
             <div class="features">
                 <i class="fas fa-moon"></i>
-                <i class="fas fa-language"></i>
+
+                <!-- <i class="fas fa-language"></i> -->
+                <select class="select-language-responsive">
+                    <option value="en">
+                        EN
+                    </option>
+                    <option value="fr">
+                        FR
+                    </option>
+                </select>
             </div>
         </ul>
     </div>
 
     <main>
         <section class="home-content">
+            <div>
+                <h1>peter logan's</h1>
+                <h1>steakhouse</h1>
+            </div>
             <img src="images/home-content.jpeg" alt="banner">
         </section>
 
         <section class="home-content-textinfo">
-            <div>
+            <div class="home-content-text">
                 <div class="textinfo-heading">hours</div>
                 <div>Tuesday - Sunday</div>
                 <div>11AM - 10PM</div>
             </div>
-            <div>
+            <div class="home-content-text">
                 <div class="textinfo-heading">address</div>
                 <div>70 Grand Ave</div>
                 <div>Brooklyn, New York</div>
             </div>
-            <div>
+            <div class="home-content-text">
                 <div class="textinfo-heading">contact</div>
                 <div>917-111-2222</div>
                 <div>info@peterlogan.com</div>
             </div>
         </section>
+        <section>
+            <p class="notify-user" style="display: none;">Light Mode Enabled</p>
+        </section>
+
+
+        <!-- css grid for main content at landing page -->
+        <div class="home-wrapper">
+            <div class="home-box" id="home-box-rsnv">
+                 <h3>Reservation</h3>
+                <img src="images/home-rsvn.jpg" alt="Reservation">
+            </div>
+            <div class="home-box" id="home-box-menu">
+                <h3>Menu</h3>
+                <img src="images/home-menu.jpg" alt="Menu">
+            </div>
+            <div class="home-box" id="home-box-about">
+                <h3>About</h3>
+                <img src="images/home-about.jpg" alt="About">
+            </div>
+        </div>
     </main>
 
     <footer>
@@ -130,7 +171,6 @@
         </div>
 
         <div class="address">
-
             <div>
                 <i class="fas fa-phone-alt"></i>
                 <a href="tel:917-111-2222">917-111-2222</a>
@@ -145,16 +185,15 @@
             </div>
             <div>
                 <i class="fas fa-location-arrow"></i>
-                <span>70 Grand Ave, Brooklyn, New York</span>
+                <span class="footer-address-line">70 Grand Ave, Brooklyn, New York</span>
             </div>
         </div>
-
-
         <hr>
         </div>
 
         <div id="address">
-            &COPY PETER LOGAN'S STEAK HOUSE | DESIGN BY YML
+            <span class="footer-company">&COPY PETER LOGAN'S STEAK HOUSE</span> | <span class="footer-copyright">DESIGN
+                BY YML</span>
         </div>
     </footer>
 </body>
