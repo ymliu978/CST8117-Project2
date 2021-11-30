@@ -1,239 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- author -->
     <meta name="author" content="Team 3 21F_CST8117 WDIA">
     <meta name="email" content="ymliu97@gmail.com">
-    <title>Le Petit Gril</title>
-    <link href="css/main.css" rel="stylesheet" type="text/css">
-    <link href="css/menu.css" rel="stylesheet" type="text/css">
-    <script src="scripts/menu.js" defer></script>
-
+    <!-- stylesheet -->
+    <link href="styles/main.css" rel="stylesheet" type="text/css">
+    <link href="styles/menu.css" rel="stylesheet" type="text/css">
+    <!-- scripts -->
+    <script src="scripts/main.js" defer></script>
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Stoke&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rasa&display=swap" rel="stylesheet">
+    <!-- favicon -->
+    <link rel="icon"
+        href="https://img.icons8.com/external-dreamstale-lineal-dreamstale/32/000000/external-plate-kitchen-bar-dreamstale-lineal-dreamstale.png">
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/a9c8119266.js" crossorigin="anonymous"></script>
+    <!-- title -->
+    <title>Menu | Peter Logan's Steak House</title>
 </head>
+
 <body>
-    <div class="wrapper">      
+    <!-- header -->
+    <header id="header" class="header-static-bgcolor">
+        <div class="logo">
+            <h2>peter logan's</h2>
+        </div>
+
         <nav>
-            <a href="index.html">HOME</a>
-            <a href="about.html">ABOUT</a>
-            <a href="reservation.html">RESERVATION</a>
-            <a href="menu.html">MENU</a>
-            <a href="contact.html">CONTACT</a>
+            <ul class="navigation-menu">
+                <li>
+                    <a href="index.html"></a>
+                </li>
+                <li>
+                    <a href="about.html"></a>
+                </li>
+                <li>
+                    <a href="reservation.html"></a>
+                </li>
+                <li>
+                    <a href="menu.html"></a>
+                </li>
+                <li>
+                    <a href="contact.html"></a>
+                </li>
+            </ul>
         </nav>
-        <header>
-            <hr>MENU IMAGE HERE
-        </header> 
-        <main>
-            <hr>
-            <section>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam 
-                    consequat elit id sagittis rutrum. Fusce porttitor felis sit amet 
-                    elit placerat, et rhoncus risus luctus. Etiam id dictum urna. 
-                    Pellentesque congue, odio non euismod scelerisque, lectus libero 
-                    lacinia velit, vel tristique ligula nisi eget ipsum. Phasellus arcu 
-                    sem, efficitur ut nisl id, vehicula ultricies sem. Nam eget 
-                    interdum nisl. Mauris ullamcorper commodo aliquet. Pellentesque 
-                    vitae nulla magna. Aliquam auctor tortor quis magna iaculis, quis 
-                    aliquet urna pretium. Fusce a gravida dui, vitae ullamcorper ligula. 
-                    Phasellus et nibh ut risus eleifend dictum sit amet ut neque
-                </p>
-            </section>
-            <section>
-                <hr>
-                <button id="lunch" onclick="">
-                    LUNCH
-                </button>
-                <button id="dinner" onclick="">
-                    DINNER
-                </button>
-                <button id="wine" onclick="">
-                    WINE
-                </button>
-            </section>
-            <section>
-                <hr>SERVE DAILY FROM 12PM - 9PM<hr>
-            </section>
-            <section class="rowflex" style="display: flex; flex-wrap: wrap;">
-                <div class="column" style="float: left; width: 30%;">
-                    <div id="starter">
-                        <h2>STARTERS</h2>
-                        <table>
-                            <tr>
-                                <td>
-                                    <h4>Bread Basket</h4>
-                                    selection of handmade baked rolls
-                                </td>
-                                <td>
-                                    <h4>$14.90</h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Bread Basket</h4>
-                                    selection of handmade baked rolls
-                                </td>
-                                <td>
-                                    <h4>$14.90</h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Bread Basket</h4>
-                                    selection of handmade baked rolls
-                                </td>
-                                <td>
-                                    <h4>$14.90</h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Bread Basket</h4>
-                                    selection of handmade baked rolls
-                                </td>
-                                <td>
-                                    <h4>$14.90</h4>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <div id="burger">
-                        <h2>BURGERS</h2>
-                        <table>
-                            <tr>
-                                <td>
-                                    <h4>Beef Burger</h4>
-                                    New Zealand prime Angus beef patty
-                                </td>
-                                <td>
-                                    <h4>$17.90</h4>
-                                </td>
-                            </tr> 
-                            <tr>
-                                <td>
-                                    <h4>Beef Burger</h4>
-                                    New Zealand prime Angus beef patty
-                                </td>
-                                <td>
-                                    <h4>$17.90</h4>
-                                </td>
-                            </tr> 
-                            <tr>
-                                <td>
-                                    <h4>Beef Burger</h4>
-                                    New Zealand prime Angus beef patty
-                                </td>
-                                <td>
-                                    <h4>$17.90</h4>
-                                </td>
-                            </tr> 
-                            <tr>
-                                <td>
-                                    <h4>Beef Burger</h4>
-                                    New Zealand prime Angus beef patty
-                                </td>
-                                <td>
-                                    <h4>$17.90</h4>
-                                </td>
-                            </tr> 
-                        </table>
-                    </div>
-                </div>
-                <div class="column" style="float: left; width: 30%;">
-                    <div id="entree">
-                        <h2>ENTREES</h2>
-                        <table>
-                            <tr>
-                                <td>
-                                    <h4>Cheese Platter</h4>
-                                    Selection of cheese and fruit
-                                </td>
-                                <td>
-                                    <h4>$10.90</h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Cheese Platter</h4>
-                                    Selection of cheese and fruit
-                                </td>
-                                <td>
-                                    <h4>$10.90</h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Cheese Platter</h4>
-                                    Selection of cheese and fruit
-                                </td>
-                                <td>
-                                    <h4>$10.90</h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Cheese Platter</h4>
-                                    Selection of cheese and fruit
-                                </td>
-                                <td>
-                                    <h4>$10.90</h4>
-                                </td>
-                            </tr> 
-                        </table>
-                    </div>
-                    <div id="dessert">
-                        <h2>DESSERTS</h2>
-                        <table>
-                            <tr>
-                                <td>
-                                    <h4>Ice-cream Sundae</h4>
-                                    Selection of homemade sorbet
-                                </td>
-                                <td>
-                                    <h4>$11.90</h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Ice-cream Sundae</h4>
-                                    Selection of homemade sorbet
-                                </td>
-                                <td>
-                                    <h4>$11.90</h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Ice-cream Sundae</h4>
-                                    Selection of homemade sorbet
-                                </td>
-                                <td>
-                                    <h4>$11.90</h4>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h4>Ice-cream Sundae</h4>
-                                    Selection of homemade sorbet
-                                </td>
-                                <td>
-                                    <h4>$11.90</h4>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <footer>
-            <hr>
-            <div id="address">
-                10 STREET ST, OTTAWA, ON, K1A 1Z1<br>
-                111-1111-1111<br>
-                INFO@GMAIL.COM<br><hr>  
-                &COPY STEAK HOUSE BAR AND GRILL | DESIGN BY YML
-            </div>        
-        </footer>
+
+        <div id="responsive-menu-open">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <div id="overlay-menu-close">
+            <i class="fas fa-times"></i>
+        </div>
+
+        <div class="features">
+            <i class="fas fa-moon"></i>
+            <!-- <i class="fas fa-language"></i> -->
+            <select class="select-language">
+                <option value="en">
+                    EN
+                </option>
+                <option value="fr">
+                    FR
+                </option>
+            </select>
+        </div>
+    </header>
+
+    <!-- responsive header -->
+    <div class="responsive-menu-overlay">
+        <ul class="overlay-content navigation-menu">
+            <li>
+                <a href="index.html"></a>
+            </li>
+            <li>
+                <a href="about.html"></a>
+            </li>
+            <li>
+                <a href="reservation.html"></a>
+            </li>
+            <li>
+                <a href="menu.html"></a>
+            </li>
+            <li>
+                <a href="contact.html"></a>
+            </li>
+            <div class="features">
+                <i class="fas fa-moon"></i>
+
+                <!-- <i class="fas fa-language"></i> -->
+                <select class="select-language-responsive">
+                    <option value="en">
+                        EN
+                    </option>
+                    <option value="fr">
+                        FR
+                    </option>
+                </select>
+            </div>
+        </ul>
     </div>
+
+    <main class="no-image">
+        <section>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                consequat elit id sagittis rutrum. Fusce porttitor felis sit amet
+                elit placerat, et rhoncus risus luctus. Etiam id dictum urna.
+                Pellentesque congue, odio non euismod scelerisque, lectus libero
+                lacinia velit, vel tristique ligula nisi eget ipsum. Phasellus arcu
+                sem, efficitur ut nisl id, vehicula ultricies sem. Nam eget
+                interdum nisl. Mauris ullamcorper commodo aliquet. Pellentesque
+                vitae nulla magna. Aliquam auctor tortor quis magna iaculis, quis
+                aliquet urna pretium. Fusce a gravida dui, vitae ullamcorper ligula.
+                Phasellus et nibh ut risus eleifend dictum sit amet ut neque
+            </p>
+        </section>
+        <section>
+            <hr>
+            <button id="lunch" onclick="">
+                LUNCH
+            </button>
+            <button id="dinner" onclick="">
+                DINNER
+            </button>
+            <button id="wine" onclick="">
+                WINE
+            </button>
+        </section>
+        <section>
+            <hr>SERVE DAILY FROM 12PM - 9PM
+            <hr>
+        </section>
+        <section class="rowflex" style="display: flex; flex-wrap: wrap;">
+            <div class="column" style="float: left; width: 30%;">
+                <div id="starter">
+                    <h2>STARTERS</h2>
+                    <table>
+                        <tr>
+                            <td>
+                                <h4>Bread Basket</h4>
+                                selection of handmade baked rolls
+                            </td>
+                            <td>
+                                <h4>$14.90</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>Bread Basket</h4>
+                                selection of handmade baked rolls
+                            </td>
+                            <td>
+                                <h4>$14.90</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>Bread Basket</h4>
+                                selection of handmade baked rolls
+                            </td>
+                            <td>
+                                <h4>$14.90</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>Bread Basket</h4>
+                                selection of handmade baked rolls
+                            </td>
+                            <td>
+                                <h4>$14.90</h4>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="burger">
+                    <h2>BURGERS</h2>
+                    <table>
+                        <tr>
+                            <td>
+                                <h4>Beef Burger</h4>
+                                New Zealand prime Angus beef patty
+                            </td>
+                            <td>
+                                <h4>$17.90</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>Beef Burger</h4>
+                                New Zealand prime Angus beef patty
+                            </td>
+                            <td>
+                                <h4>$17.90</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>Beef Burger</h4>
+                                New Zealand prime Angus beef patty
+                            </td>
+                            <td>
+                                <h4>$17.90</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>Beef Burger</h4>
+                                New Zealand prime Angus beef patty
+                            </td>
+                            <td>
+                                <h4>$17.90</h4>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="column" style="float: left; width: 30%;">
+                <div id="entree">
+                    <h2>ENTREES</h2>
+                    <table>
+                        <tr>
+                            <td>
+                                <h4>Cheese Platter</h4>
+                                Selection of cheese and fruit
+                            </td>
+                            <td>
+                                <h4>$10.90</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>Cheese Platter</h4>
+                                Selection of cheese and fruit
+                            </td>
+                            <td>
+                                <h4>$10.90</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>Cheese Platter</h4>
+                                Selection of cheese and fruit
+                            </td>
+                            <td>
+                                <h4>$10.90</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>Cheese Platter</h4>
+                                Selection of cheese and fruit
+                            </td>
+                            <td>
+                                <h4>$10.90</h4>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="dessert">
+                    <h2>DESSERTS</h2>
+                    <table>
+                        <tr>
+                            <td>
+                                <h4>Ice-cream Sundae</h4>
+                                Selection of homemade sorbet
+                            </td>
+                            <td>
+                                <h4>$11.90</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>Ice-cream Sundae</h4>
+                                Selection of homemade sorbet
+                            </td>
+                            <td>
+                                <h4>$11.90</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>Ice-cream Sundae</h4>
+                                Selection of homemade sorbet
+                            </td>
+                            <td>
+                                <h4>$11.90</h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4>Ice-cream Sundae</h4>
+                                Selection of homemade sorbet
+                            </td>
+                            <td>
+                                <h4>$11.90</h4>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <hr>
+        <div id="address">
+            10 STREET ST, OTTAWA, ON, K1A 1Z1<br>
+            111-1111-1111<br>
+            INFO@GMAIL.COM<br>
+            <hr>
+            &COPY STEAK HOUSE BAR AND GRILL | DESIGN BY YML
+        </div>
+    </footer>
+
 </body>
+
 </html>
