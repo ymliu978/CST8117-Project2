@@ -107,21 +107,21 @@ window.addEventListener("resize", function () {
  *******************************************************************************/
 
 // Getting all the user option buttons.
-var uxButtons = document.querySelectorAll("div[class='features']");
+const uxButtons = document.querySelectorAll("div[class='features']");
 
 // Getting both the non responsive and responsive theme toggle buttons.
-let themeToggleButtons = [uxButtons[0].children[0], uxButtons[1].children[0]];
+const themeToggleButtons = [uxButtons[0].children[0], uxButtons[1].children[0]];
 
 // Getting both the non responsive and responsive language buttons.
-let languageToggleButtons = [uxButtons[0].children[1], uxButtons[1].children[1]]; // Toggle for language.
+const languageToggleButtons = [uxButtons[0].children[1], uxButtons[1].children[1]]; // Toggle for language.
 
 /*****************************
     Dark mode functionality.
  *****************************/
 
 // Adding the CSS for the themes.
-let themeStyles = document.createElement("style");
-themeStyles.innerHTML = ".dark-mode-heading { border: 1px solid rgb(226, 226, 226); color: rgb(226, 226, 226); } .dark-mode-text { color: rgb(226, 226, 226); }";
+const themeStyles = document.createElement("style");
+themeStyles.innerHTML = ".dark-mode-heading { border: 1px solid rgb(226, 226, 226); color: rgb(226, 226, 226); } .dark-mode-text { color: rgb(226, 226, 226); } div.toast-msg-container { position: fixed; margin: auto; bottom: 10%; } span.toast-msg { padding: 10px; width: wrap-content; background-color: rgba(0, 0, 0, 0.5); color: white; text-align: center; border-radius: 5px; } span.toast-msg-dark { padding: 10px; background-color: rgba(255, 255, 255, 0.5); color: black; text-align: center; border-radius: 5px; }";
 document.querySelector("head").appendChild(themeStyles);
 
 /*
@@ -187,6 +187,7 @@ function enableDarkTheme() {
         });
     });
 }
+
 // proof of concept for multiple languages
 
 // language
@@ -270,4 +271,24 @@ function handleSelectOptions(newLanguage) {
         var frResponsive = selectLanguageResponsive.options[1];
         frResponsive.setAttribute("selected", true);
     }
+}
+
+/**************************
+   Toast message handler.
+ **************************/
+
+// Creating a toast message container and putting a toast message in it and adding it to the body.
+const toastMsgContainer = document.createElement("div");
+toastMsgContainer.className = "toast-msg-container";
+toastMsgContainer.innerHTML = "<span class='toast-msg'>Msg here</span>";
+document.body.appendChild(toastMsgContainer);
+
+// Creating a variable to directly interact with the toast message.
+const toastMsg = toastMsgContainer.querySelector("span");
+
+function toastMessage(message) {
+    // Setting the message to display in the toast.
+    toastMsg.innerHTML = message;
+    // Displaying the toast message to the user.
+    toastMsgContainer.style.visibility = "visible";
 }
