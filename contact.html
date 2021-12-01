@@ -12,22 +12,148 @@
 </head>
 
 <body>
-    <div class="container contact-us">
+    <!-- header -->
+    <header id="header" class="header-static-bgcolor">
+        <div class="logo">
+            <h2>peter logan's</h2>
+        </div>
+
         <nav>
-            <a href="index.html">HOME</a>
-            <a href="about.html">ABOUT</a>
-            <a href="reservation.html">RESERVATION</a>
-            <a href="menu.html">MENU</a>
-            <a href="contact.html">CONTACT</a>
+            <ul class="navigation-menu">
+                <li>
+                    <a href="index.html"></a>
+                </li>
+                <li>
+                    <a href="about.html"></a>
+                </li>
+                <li>
+                    <a href="reservation.html"></a>
+                </li>
+                <li>
+                    <a href="menu.html"></a>
+                </li>
+                <li>
+                    <a href="contact.html"></a>
+                    <!-- highlight navigation menu option -->
+                    <div class="active-menu-indicator"></div>
+                </li>
+            </ul>
         </nav>
-        <div class="left-container">
 
+        <div id="responsive-menu-open">
+            <i class="fas fa-bars"></i>
         </div>
 
-        <div class="right-container">
-
+        <div id="overlay-menu-close">
+            <i class="fas fa-times"></i>
         </div>
+
+        <div class="features">
+            <i class="fas fa-moon"></i>
+            <!-- <i class="fas fa-language"></i> -->
+            <select class="select-language">
+                <option value="en">
+                    EN
+                </option>
+                <option value="fr">
+                    FR
+                </option>
+            </select>
+        </div>
+    </header>
+
+    <!-- responsive header -->
+    <div class="responsive-menu-overlay">
+        <ul class="overlay-content navigation-menu">
+            <li>
+                <a href="index.html"></a>
+            </li>
+            <li>
+                <a href="about.html"></a>
+            </li>
+            <li>
+                <a href="reservation.html"></a>
+            </li>
+            <li>
+                <a href="menu.html"></a>
+            </li>
+            <li>
+                <a href="contact.html"></a>
+            </li>
+            <div class="features">
+                <i class="fas fa-moon"></i>
+
+                <!-- <i class="fas fa-language"></i> -->
+                <select class="select-language-responsive">
+                    <option value="en">
+                        EN
+                    </option>
+                    <option value="fr">
+                        FR
+                    </option>
+                </select>
+            </div>
+        </ul>
     </div>
+
+    <main class="no-image">
+        <section>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                consequat elit id sagittis rutrum. Fusce porttitor felis sit amet
+                elit placerat, et rhoncus risus luctus. Etiam id dictum urna.
+                Pellentesque congue, odio non euismod scelerisque, lectus libero
+                lacinia velit, vel tristique ligula nisi eget ipsum. Phasellus arcu
+                sem, efficitur ut nisl id, vehicula ultricies sem. Nam eget
+                interdum nisl. Mauris ullamcorper commodo aliquet. Pellentesque
+                vitae nulla magna. Aliquam auctor tortor quis magna iaculis, quis
+                aliquet urna pretium. Fusce a gravida dui, vitae ullamcorper ligula.
+                Phasellus et nibh ut risus eleifend dictum sit amet ut neque
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-media">
+            <a href="https://www.instagram.com/explore/tags/steakhouse/">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="https://www.yelp.ca/c/toronto/steak">
+                <i class="fab fa-yelp"></i>
+            </a>
+
+            <a href="https://twitter.com/SteakHouse9_">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+
+        <div class="address">
+            <div>
+                <i class="fas fa-phone-alt"></i>
+                <a href="tel:917-111-2222">917-111-2222</a>
+                <span class="gap">•</span>
+            </div>
+            <div>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:info@gmail.com">
+                    info@peterlogan.com
+                </a>
+                <span class="gap">•</span>
+            </div>
+            <div>
+                <i class="fas fa-location-arrow"></i>
+                <span class="footer-address-line">70 Grand Ave, Brooklyn, New York</span>
+            </div>
+        </div>
+        <hr>
+        </div>
+
+        <div id="address">
+            <span class="footer-company">&COPY PETER LOGAN'S STEAK HOUSE</span> | <span class="footer-copyright">DESIGN
+                BY YML</span>
+        </div>
+    </footer>
 </body>
 
 </html>

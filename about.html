@@ -1,76 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- author -->
     <meta name="author" content="Team 3 21F_CST8117 WDIA">
     <meta name="email" content="ymliu97@gmail.com">
-    <title>Le Petit Gril</title>
-    <link href="css/main.css" rel="stylesheet" type="text/css">
-    <link href="css/about.css" rel="stylesheet" type="text/css">
+    <!-- stylesheet -->
+    <link href="styles/main.css" rel="stylesheet" type="text/css">
+    <link href="styles/about.css" rel="stylesheet" type="text/css">
+    <!-- scripts -->
     <script src="scripts/main.js" defer></script>
-    <script src="scripts/about.js" defer></script>
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Stoke&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rasa&display=swap" rel="stylesheet">
+    <!-- favicon -->
+    <link rel="icon"
+        href="https://img.icons8.com/external-dreamstale-lineal-dreamstale/32/000000/external-plate-kitchen-bar-dreamstale-lineal-dreamstale.png">
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/a9c8119266.js" crossorigin="anonymous"></script>
+    <!-- title -->
+    <title>About | Peter Logan's Steak House</title>
 </head>
-<body>
-    <div class="wrapper">      
-        <nav>
-            <a href="index.html">HOME</a>
-            <a href="about.html">ABOUT</a>
-            <a href="reservation.html">RESERVATION</a>
-            <a href="menu.html">MENU</a>
-            <a href="contact.html">CONTACT</a>
-        </nav>
-        <header>
-            <hr> IMAGES HERE
-        </header> 
-        <main>
-            <hr>
 
-            <section>
+<body>
+    <!-- header -->
+    <header id="header">
+        <div class="logo">
+            <h2>peter logan's</h2>
+        </div>
+
+        <nav>
+            <ul class="navigation-menu">
+                <li>
+                    <a href="index.html"></a>
+                </li>
+                <li>
+                    <a href="about.html"></a>
+                    <!-- highlight navigation menu option -->
+                    <div class="active-menu-indicator"></div>
+                </li>
+                <li>
+                    <a href="reservation.html"></a>
+                </li>
+                <li>
+                    <a href="menu.html"></a>
+                </li>
+                <li>
+                    <a href="contact.html"></a>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="responsive-menu-open">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <div id="overlay-menu-close">
+            <i class="fas fa-times"></i>
+        </div>
+
+        <div class="features">
+            <i class="fas fa-moon"></i>
+            <!-- <i class="fas fa-language"></i> -->
+            <select class="select-language">
+                <option value="en">
+                    EN
+                </option>
+                <option value="fr">
+                    FR
+                </option>
+            </select>
+        </div>
+    </header>
+
+    <!-- responsive header -->
+    <div class="responsive-menu-overlay">
+        <ul class="overlay-content navigation-menu">
+            <li>
+                <a href="index.html"></a>
+            </li>
+            <li>
+                <a href="about.html"></a>
+            </li>
+            <li>
+                <a href="reservation.html"></a>
+            </li>
+            <li>
+                <a href="menu.html"></a>
+            </li>
+            <li>
+                <a href="contact.html"></a>
+            </li>
+            <div class="features">
+                <i class="fas fa-moon"></i>
+
+                <!-- <i class="fas fa-language"></i> -->
+                <select class="select-language-responsive">
+                    <option value="en">
+                        EN
+                    </option>
+                    <option value="fr">
+                        FR
+                    </option>
+                </select>
+            </div>
+        </ul>
+    </div>
+
+    <main>
+        <section>
+            <section class="main-content">
+                <img src="images/patrick-tomasso-GXXYkSwndP4-unsplash.jpg" alt="about banner">
+            </section>
+
+            <section class="main-content-textinfo">
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam 
-                    consequat elit id sagittis rutrum. Fusce porttitor felis sit amet 
-                    elit placerat, et rhoncus risus luctus. Etiam id dictum urna. 
-                    Pellentesque congue, odio non euismod scelerisque, lectus libero 
-                    lacinia velit, vel tristique ligula nisi eget ipsum. Phasellus arcu 
-                    sem, efficitur ut nisl id, vehicula ultricies sem. Nam eget 
-                    interdum nisl. Mauris ullamcorper commodo aliquet. Pellentesque 
-                    vitae nulla magna. Aliquam auctor tortor quis magna iaculis, quis 
-                    aliquet urna pretium. Fusce a gravida dui, vitae ullamcorper ligula. 
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                    consequat elit id sagittis rutrum. Fusce porttitor felis sit amet
+                    elit placerat, et rhoncus risus luctus. Etiam id dictum urna.
+                    Pellentesque congue, odio non euismod scelerisque, lectus libero
+                    lacinia velit, vel tristique ligula nisi eget ipsum. Phasellus arcu
+                    sem, efficitur ut nisl id, vehicula ultricies sem. Nam eget
+                    interdum nisl. Mauris ullamcorper commodo aliquet. Pellentesque
+                    vitae nulla magna. Aliquam auctor tortor quis magna iaculis, quis
+                    aliquet urna pretium. Fusce a gravida dui, vitae ullamcorper ligula.
                     Phasellus et nibh ut risus eleifend dictum sit amet ut neque
                 </p>
             </section>
-            <section class="rowflex" style="display: flex; flex-wrap: wrap;">
-                <div class="column" style="float: left; width: 50%;">
-                    <p>CHEF IMAGE HERE</p>
+
+            <section>
+                <p class="notify-user" style="display: none;">Light Mode Enabled</p>
+            </section>
+
+            <!-- css grid for main content at About page -->
+            <div class="home-wrapper">
+                <div class="grid-item" id="grid-item-3">
+                    <p id="chef-name">Lorenzo Palmiotto</p>
+                    <img src="images/about-chef.jpg" alt="chef">
+                </div>
+                <div class="grid-item" id="grid-item-4">
+                    <p>"Integer faucibus viverra lacus, non hendrerit sem rhoncus!"</p>
+                    <p class="quote-author">--Donec pretium eget</p>
+                    <p>"Integer faucibus viverra lacus, non hendrerit sem rhoncus!"</p>
+                    <p class="quote-author">--Donec pretium eget</p>
+                    <p>"Integer faucibus viverra lacus, non hendrerit sem rhoncus!"</p>
+                    <p class="quote-author">--Donec pretium eget</p>
+                    <p>"Integer faucibus viverra lacus, non hendrerit sem rhoncus!"</p>
+                    <p class="quote-author">--Donec pretium eget</p>
+                    <p>"Integer faucibus viverra lacus, non hendrerit sem rhoncus!"</p>
+                    <p class="quote-author">--Donec pretium eget</p>
+                    <p>"Integer faucibus viverra lacus, non hendrerit sem rhoncus!"</p>
+                    <p class="quote-author">--Donec pretium eget</p>
+                    <p>"Integer faucibus viverra lacus, non hendrerit sem rhoncus!"</p>
+                    <p class="quote-author">--Donec pretium eget</p>
+
+                </div>
+                <div class="grid-item" id="grid-item-5">
                     <p>
-                        <h3>CHEF TEXT</h3>
-                        Donec in scelerisque erat. Nam quis ipsum ligula. Aliquam pharetra felis nec ex 
-                        interdum posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam 
-                        suscipit quis eros ac luctus.
-                    </p>
-                <div class="column" style="float: left; width: 50%;">
-                    <h3>QUOTES</h3>
-                    <p>
-                        Integer faucibus viverra lacus, non hendrerit sem rhoncus in. <br>Donec pretium eget 
-                        ante sed rutrum. Nam quis lectus dignissim, fringilla nulla at, fermentum libero.<br> 
-                        Sed a est in mi malesuada dictum. Mauris id orci egestas, pulvinar dolor vitae, 
-                        pharetra felis.<br> In a ipsum varius, viverra neque sit amet, placerat lectus. <br>Nam 
+                        Donec in scelerisque erat. Nam quis ipsum ligula. Aliquam pharetra felis nec ex
+                        interdum posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+                        suscipit quis eros ac luctus.Integer faucibus viverra lacus, non hendrerit sem rhoncus in.
+                        <br>Donec pretium eget
+                        ante sed rutrum. Nam quis lectus dignissim, fringilla nulla at, fermentum libero.<br>
+                        Sed a est in mi malesuada dictum. Mauris id orci egestas, pulvinar dolor vitae,
+                        pharetra felis.<br> In a ipsum varius, viverra neque sit amet, placerat lectus. <br>Nam
                         risus turpis, ultrices id tincidunt et, accumsan quis sapien.
                     </p>
                 </div>
-                
-            </section>
-        </main>
-        <footer>
-            <hr>
-            <div id="address">
-                10 STREET ST, OTTAWA, ON, K1A 1Z1<br>
-                111-1111-1111<br>
-                INFO@GMAIL.COM<br><hr>  
-                &COPY STEAK HOUSE BAR AND GRILL | DESIGN BY YML
-            </div>        
-        </footer>
-    </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-media">
+            <a href="https://www.instagram.com/explore/tags/steakhouse/">
+                <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="https://www.yelp.ca/c/toronto/steak">
+                <i class="fab fa-yelp"></i>
+            </a>
+
+            <a href="https://twitter.com/SteakHouse9_">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </div>
+
+        <div class="address">
+            <div>
+                <i class="fas fa-phone-alt"></i>
+                <a href="tel:917-111-2222">917-111-2222</a>
+                <span class="gap">•</span>
+            </div>
+            <div>
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:info@gmail.com">
+                    info@peterlogan.com
+                </a>
+                <span class="gap">•</span>
+            </div>
+            <div>
+                <i class="fas fa-location-arrow"></i>
+                <span class="footer-address-line">70 Grand Ave, Brooklyn, New York</span>
+            </div>
+        </div>
+        <hr>
+        </div>
+
+        <div id="address">
+            <span class="footer-company">&COPY PETER LOGAN'S STEAK HOUSE</span> | <span class="footer-copyright">DESIGN
+                BY YML</span>
+        </div>
+    </footer>
 </body>
+
 </html>

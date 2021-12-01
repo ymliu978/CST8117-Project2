@@ -1,0 +1,153 @@
+main.menu .main-content-textinfo p {
+    padding: 0;
+    font-size: 1rem;
+}
+
+main section.menu-grid {
+    padding: 4rem 2rem;
+    color: white;
+}
+
+main section.menu-grid.item-one {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+        url("../images/menu-bg-1.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+main section.menu-grid.item-two {
+    background: linear-gradient(
+            rgba(255, 255, 255, 0.75),
+            rgba(255, 255, 255, 0.85)
+        ),
+        url("../images/menu-bg-2.jpeg");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    color: black;
+}
+
+main section.menu-grid.item-three {
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)),
+        url("../images/menu-bg-3.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+main section.menu-grid.item-four {
+    background: linear-gradient(
+            rgba(255, 255, 255, 0.75),
+            rgba(255, 255, 255, 0.85)
+        ),
+        url("../images/menu-bg-4.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: black;
+}
+
+main section.menu-grid.item-five {
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)),
+        url("../images/menu-bg-5.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+main section.menu-grid > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: stretch;
+    row-gap: 1rem;
+    column-gap: 1.6rem;
+}
+
+main section.menu-grid > h2 {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+main section.menu-grid div.menu-cell {
+    padding: 1rem;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+main section.menu-grid div.menu-cell div.title {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+main section.menu-grid div.menu-cell div.title div:first-child {
+    padding-right: 4px;
+}
+
+main section.menu-grid div.menu-cell div.title div:last-child {
+    padding-left: 4px;
+}
+
+main section.menu-grid div.menu-cell div.description {
+    font-weight: 200;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 1024px) {
+    main section.menu-grid > div {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    main section.menu-grid > h2 {
+        text-align: center;
+        font-size: 1.3rem;
+    }
+
+    main section.menu-grid div.menu-cell div.title {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    main section.menu-grid > div {
+        grid-template-columns: 1fr;
+    }
+}
+
+section > p {
+    padding: 32px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    font-weight: 200;
+    font-size: 1.8em;
+}
+
+section > h1 {
+    padding: 32px;
+    background-color: rgba(79, 49, 48, 0.95);
+    color: aliceblue;
+    text-align: center;
+    font-weight: 200;
+    font-size: 2.2em;
+}
+
+.rowflex {
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: 200;
+    font-size: 1.8em;
+}
+
+.column {
+    float: left;
+    width: 50%;
+    padding: 2% 10%;
+}
+
+td {
+    padding: 10px;
+}

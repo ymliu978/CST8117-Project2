@@ -208,6 +208,13 @@ function updateLanguage(lang = "en") {
             languageData.navigation.menu[lang][index];
     }
 
+    // responsive navigation menu
+    for (var index = 0; index < menuLength; index++) {
+        responsiveMenuOverlay.children[0].children[
+            index
+        ].children[0].textContent = languageData.navigation.menu[lang][index];
+    }
+
     // home -> content text
     for (var index = 0; index < homeContentText.length; index++) {
         homeContentText[index].children[0].textContent =
