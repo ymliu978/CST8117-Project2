@@ -77,11 +77,6 @@ header nav ul li:hover {
     background-color: var(--header-menu-item-color);
 }
 
-/* hide last menu item */
-header nav ul li:last-child {
-    display: none;
-}
-
 header nav ul li div.active-menu-indicator {
     position: absolute;
     height: 2px;
@@ -171,11 +166,6 @@ header .responsive-menu i {
 
 .responsive-menu-overlay .overlay-content li {
     padding: 32px 16px;
-}
-
-/* hide last menu item */
-.responsive-menu-overlay .overlay-content ul li:last-child {
-    display: none;
 }
 
 .responsive-menu-overlay .overlay-content li a {
