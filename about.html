@@ -108,8 +108,13 @@
         </ul>
     </div>
 
-    <main class="no-image">
+    <main>
         <section>
+            <section class="main-content">
+                <img src="images/about-content.jpg" alt="banner">
+            </section>
+
+            <section class="main-content-textinfo">
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
                 consequat elit id sagittis rutrum. Fusce porttitor felis sit amet
@@ -123,25 +128,46 @@
                 Phasellus et nibh ut risus eleifend dictum sit amet ut neque
             </p>
         </section>
-        <section class="rowflex" style="display: flex; flex-wrap: wrap;">
-            <div class="column" style="float: left; width: 50%;">
-                <p>CHEF IMAGE HERE</p>
+
+        <section>
+            <p class="notify-user" style="display: none;">Light Mode Enabled</p>
+        </section>
+
+        <!-- css grid for main content at About page -->
+        <div class="home-wrapper">
+            <div class="grid-item" id="grid-item-3">
+                <p id="chef-name">Lorenzo Palmiotto</p>
+                <img src="images/about-chef.jpg" alt="chef">
+            </div>
+            <div class="grid-item" id="grid-item-4">
+                <p>"Integer faucibus viverra lacus, non hendrerit sem rhoncus!"</p>
+                <p class="quote-author">--Donec pretium eget</p>
+                <p>"Integer faucibus viverra lacus, non hendrerit sem rhoncus!"</p>
+                <p class="quote-author">--Donec pretium eget</p>
+                <p>"Integer faucibus viverra lacus, non hendrerit sem rhoncus!"</p>
+                <p class="quote-author">--Donec pretium eget</p>
+                <p>"Integer faucibus viverra lacus, non hendrerit sem rhoncus!"</p>
+                <p class="quote-author">--Donec pretium eget</p>
+                <p>"Integer faucibus viverra lacus, non hendrerit sem rhoncus!"</p>
+                <p class="quote-author">--Donec pretium eget</p>
+                <p>"Integer faucibus viverra lacus, non hendrerit sem rhoncus!"</p>
+                <p class="quote-author">--Donec pretium eget</p>
+                <p>"Integer faucibus viverra lacus, non hendrerit sem rhoncus!"</p>
+                <p class="quote-author">--Donec pretium eget</p>
+               
+            </div>
+            <div class="grid-item" id="grid-item-5">
                 <p>
-                <h3>CHEF TEXT</h3>
-                Donec in scelerisque erat. Nam quis ipsum ligula. Aliquam pharetra felis nec ex
+                    Donec in scelerisque erat. Nam quis ipsum ligula. Aliquam pharetra felis nec ex
                 interdum posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-                suscipit quis eros ac luctus.
+                suscipit quis eros ac luctus.Integer faucibus viverra lacus, non hendrerit sem rhoncus in. <br>Donec pretium eget
+                ante sed rutrum. Nam quis lectus dignissim, fringilla nulla at, fermentum libero.<br>
+                Sed a est in mi malesuada dictum. Mauris id orci egestas, pulvinar dolor vitae,
+                pharetra felis.<br> In a ipsum varius, viverra neque sit amet, placerat lectus. <br>Nam
+                risus turpis, ultrices id tincidunt et, accumsan quis sapien.
                 </p>
-                <div class="column" style="float: left; width: 50%;">
-                    <h3>QUOTES</h3>
-                    <p>
-                        Integer faucibus viverra lacus, non hendrerit sem rhoncus in. <br>Donec pretium eget
-                        ante sed rutrum. Nam quis lectus dignissim, fringilla nulla at, fermentum libero.<br>
-                        Sed a est in mi malesuada dictum. Mauris id orci egestas, pulvinar dolor vitae,
-                        pharetra felis.<br> In a ipsum varius, viverra neque sit amet, placerat lectus. <br>Nam
-                        risus turpis, ultrices id tincidunt et, accumsan quis sapien.
-                    </p>
-                </div>
+            </div>
+        </div>
 
         </section>
     </main>

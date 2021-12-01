@@ -1,103 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Team 3 21F_CST8117 WDIA">
-    <meta name="email" content="ymliu97@gmail.com">
-    <title>Le Petit Gril</title>
-    <link href="css/main.css" rel="stylesheet" type="text/css">
-    <link href="css/reservation.css" rel="stylesheet" type="text/css">
-    <script src="scripts/reservation.js" defer></script>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- author -->
+      <meta name="author" content="Team 3 21F_CST8117 WDIA">
+      <meta name="email" content="ymliu97@gmail.com">
+      <!-- stylesheet -->
+      <link href="styles/main.css" rel="stylesheet" type="text/css">
+      <link href="styles/reservation.css" rel="stylesheet" type="text/css">
+      <link href="https://unpkg.com/flickity@2/dist/flickity.min.css" rel="stylesheet"> <!-- slideshows using Flickity -->
+      <!-- scripts -->
+      <script src="scripts/main.js" defer></script>
+      <script src="scripts/reservation.js" defer></script>
+      <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script> <!-- slideshows using Flickity -->
+      <!-- fonts -->
+      <link href="https://fonts.googleapis.com/css2?family=Stoke&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200;400&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Rasa&display=swap" rel="stylesheet">
+      <!-- favicon -->
+      <link rel="icon"
+         href="https://img.icons8.com/external-dreamstale-lineal-dreamstale/32/000000/external-plate-kitchen-bar-dreamstale-lineal-dreamstale.png">
+      <!-- fontawesome -->
+      <script src="https://kit.fontawesome.com/a9c8119266.js" crossorigin="anonymous"></script>
+      <!-- title -->
+      <title>RSVN | Peter Logan's Steak House</title>
+   </head>
+   <body>
+      <!-- header -->
+      <header id="header">
+         <div class="logo">
+            <h2>peter logan's</h2>
+         </div>
+         <nav>
+            <ul class="navigation-menu">
+               <li>
+                  <a href="index.html"></a>
+               </li>
+               <li>
+                  <a href="about.html"></a>
+               </li>
+               <li>
+                  <a href="reservation.html"></a>
+               </li>
+               <li>
+                  <a href="menu.html"></a>
+               </li>
+               <li>
+                  <a href="contact.html"></a>
+               </li>
+            </ul>
+         </nav>
+         <div id="responsive-menu-open">
+            <i class="fas fa-bars"></i>
+         </div>
+         <div id="overlay-menu-close">
+            <i class="fas fa-times"></i>
+         </div>
+         <div class="features">
+            <i class="fas fa-moon"></i>
+            <!-- <i class="fas fa-language"></i> -->
+            <select class="select-language">
+               <option value="en">
+                  EN
+               </option>
+               <option value="fr">
+                  FR
+               </option>
+            </select>
+         </div>
+      </header>
+      <!-- responsive header -->
+      <div class="responsive-menu-overlay">
+         <ul class="overlay-content navigation-menu">
+            <li>
+               <a href="index.html">Home</a>
+            </li>
+            <li>
+               <a href="about.html"></a>
+            </li>
+            <li>
+               <a href="reservation.html"></a>
+            </li>
+            <li>
+               <a href="menu.html"></a>
+            </li>
+            <li>
+               <a href="contact.html"></a>
+            </li>
+            <div class="features">
+               <i class="fas fa-moon"></i>
+               <!-- <i class="fas fa-language"></i> -->
+               <select class="select-language-responsive">
+                  <option value="en">
+                     EN
+                  </option>
+                  <option value="fr">
+                     FR
+                  </option>
+               </select>
+            </div>
+         </ul>
+      </div>
+      <main>
+         <section class="main-content">
+            <img src="images/rsvn-content2.jpg" alt="banner">
+         </section>
+         <section class="main-content-textinfo">
+            <p>
+               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+               consequat elit id sagittis rutrum. Fusce porttitor felis sit amet
+               elit placerat, et rhoncus risus luctus. Etiam id dictum urna.
+               Pellentesque congue, odio non euismod scelerisque, lectus libero
+               lacinia velit, vel tristique ligula nisi eget ipsum. Phasellus arcu
+               sem, efficitur ut nisl id, vehicula ultricies sem. 
+            </p>
+         </section>
+         <section>
+            <p class="notify-user" style="display: none;">Light Mode Enabled</p>
+         </section>
+         <section class="main-content-textinfo">
+            <div class="main-content-text">
+               <div class="textinfo-heading">EAST VILLAGE</div>
+               <div>36 Spring St</div>
+               <div>914-111-2345</div>
+            </div>
+            <div class="main-content-text">
+               <div class="textinfo-heading">PARK AVENUE</div>
+               <div>180 Grand Ave West</div>
+               <div>929-111-6789</div>
+            </div>
+            <div class="main-content-text">
+               <div class="textinfo-heading">CONLITON HILL</div>
+               <div>70 Grand Ave</div>
+               <div>917-111-2222</div>
+            </div>
+         </section>
+        
+         <!-- slideshows using Flickity -->
+         <section> 
+            <div class="carousel"
+  data-flickity='{ "freeScroll": true, "wrapAround": true,"autoPlay": 1500 }'>
+               <div class="carousel-cell"></div>
+               <div class="carousel-cell"></div>
+               <div class="carousel-cell"></div>
+               <div class="carousel-cell"></div>
+               <div class="carousel-cell"></div>
+             </div>
+        </section>
 
-</head>
-<body>
-    <div class="wrapper">      
-        <nav>
-            <a href="index.html">HOME</a>
-            <a href="about.html">ABOUT</a>
-            <a href="reservation.html">RESERVATION</a>
-            <a href="menu.html">MENU</a>
-            <a href="contact.html">CONTACT</a>
-        </nav>
-        <header>
-            <hr> IMAGE HERE
-        </header> 
-        <main>
-            <hr>
-            <section>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam 
-                    consequat elit id sagittis rutrum. Fusce porttitor felis sit amet 
-                    elit placerat, et rhoncus risus luctus. Etiam id dictum urna. 
-                    Pellentesque congue, odio non euismod scelerisque, lectus libero 
-                    lacinia velit, vel tristique ligula nisi eget ipsum. Phasellus arcu 
-                    sem, efficitur ut nisl id, vehicula ultricies sem. Nam eget 
-                    interdum nisl. Mauris ullamcorper commodo aliquet. Pellentesque 
-                    vitae nulla magna. Aliquam auctor tortor quis magna iaculis, quis 
-                    aliquet urna pretium. Fusce a gravida dui, vitae ullamcorper ligula. 
-                    Phasellus et nibh ut risus eleifend dictum sit amet ut neque
-                </p>
-            </section>
-            <section>
-                <hr>
-                <button id="westwing" onclick="">
-                    WEST WING
-                </button>
-                <button id="parkavenue" onclick="">
-                    PARK AVENUE
-                </button>
-                <button id="eastwing" onclick="">
-                    EAST WING
-                </button>
-            </section>
-            <section>
-                <hr>SLIDE GALLERY HERE<hr>
-            </section>
-            <p>INQUIRY</p>
-            <section class="rowflex" style="display: flex; flex-wrap: wrap;">
-                <div class="column" style="float: left; width: 30%;">
-                    <div class="row">
+        <!-- Inqury Form -->
+         <section>
+             <div class="container">
+                <h3 id="form-title">Inqury</h3>
+                <form action="" id="inqury"></form>
+                    <div class="form-input">
                         <label for="name">NAME*</label>
                         <input type="text" id="name" name="name">
                         <span class="alert" id="nameError"></span>
                     </div>
-                    <div class="row">
+                    <div class="form-input">
                         <label for="email">EMAIL</label>
                         <input type="text" id="email" name="email"> 
                     </div>
-                </div>
-                <div class="column" style="float: left; width: 30%;">
-                    <div class="row">
-                        <label for="company">COMPANY</label>
-                        <input type="text" id="company" name="company">
-                    </div>
-                    <div class="row">
+                    <div class="form-input">
                         <label for="phone">PHONE</label>
                         <input type="text" id="phone" name="phone"> 
                     </div>
-                </div>
-                <div class="column" style="float: left; width: 50%;">
-                    <div class="row">
+                    <div class="form-input">
                         <label for="content">Drop us more details</label>
                         <textarea id="content" name="content" placeholder="Further information.." style="height:50px"></textarea>
                     </div>
-                    <div class="row">
-                        <input type="submit" value="Send">
+                    <div class='form-input'>
+                        <button type='submit' id='submit'>Submit</button>
                     </div>
-                </div>
-                
-            </section>
-        </main>
-        <footer>
+                </form>
+            </div>
+        </section>    
+      </main>
+      <footer>
+         <hr>
+         <div id="address">
+            10 STREET ST, OTTAWA, ON, K1A 1Z1<br>
+            111-1111-1111<br>
+            INFO@GMAIL.COM<br>
             <hr>
-            <div id="address">
-                10 STREET ST, OTTAWA, ON, K1A 1Z1<br>
-                111-1111-1111<br>
-                INFO@GMAIL.COM<br><hr>  
-                &COPY STEAK HOUSE BAR AND GRILL | DESIGN BY YML
-            </div>        
-        </footer>
-    </div>
-</body>
+            &COPY STEAK HOUSE BAR AND GRILL | DESIGN BY YML
+         </div>
+      </footer>
+   </body>
 </html>
