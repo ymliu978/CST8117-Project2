@@ -1,4 +1,6 @@
-main.menu {
+main.menu .main-content-textinfo p {
+    padding: 0;
+    font-size: 1rem;
 }
 
 main section.menu-grid {

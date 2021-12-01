@@ -77,6 +77,11 @@ header nav ul li:hover {
     background-color: var(--header-menu-item-color);
 }
 
+/* hide last menu item */
+header nav ul li:last-child {
+    display: none;
+}
+
 header nav ul li div.active-menu-indicator {
     position: absolute;
     height: 2px;
@@ -166,6 +171,11 @@ header .responsive-menu i {
 
 .responsive-menu-overlay .overlay-content li {
     padding: 32px 16px;
+}
+
+/* hide last menu item */
+.responsive-menu-overlay .overlay-content ul li:last-child {
+    display: none;
 }
 
 .responsive-menu-overlay .overlay-content li a {
@@ -306,12 +316,9 @@ section div.textinfo-heading {
     cursor: pointer;
 }
 
-
-
-
-.button-1:hover:not(.active){
-    background-color: rgba(255,255,255,0.7);
-    color:rgba(79, 49, 40, 1);
+.button-1:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: rgba(79, 49, 40, 1);
 }
 
 .grid-item img {
