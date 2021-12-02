@@ -103,12 +103,12 @@ window.addEventListener("resize", function () {
 });
 
 /*******************************************************************************
-              Global user experience functionality. (ie. dark mode)
+       Global user experience functionality. (ie. toast message, dark mode)
  *******************************************************************************/
 
-/*************************************** 
-    Adding the CSS for the themes.
-***************************************/ 
+/************************************************************** 
+      Adding the CSS for the themes and aquiring elements.
+**************************************************************/ 
 
 // Styles for the text headings, paragraphs, toast message (both light and dark) and its container.
 const themeStyles = document.createElement("style");
@@ -116,15 +116,31 @@ themeStyles.innerHTML = ".dark-mode-heading { border: 1px solid rgb(226, 226, 22
 document.querySelector("head").appendChild(themeStyles);
 // For the flickity dots (separate constant because it will be added and removed from the body depending on the theme state).
 const darkDotStyle = document.createElement("style");
-darkDotStyle.innerHTML = ".flickity-page-dots .dot { background-color: white; }";
-document.querySelector("head").appendChild(darkDotStyle);
+darkDotStyle.innerHTML = ".flickity-viewport { background-color: rgb(20, 20, 20); } .flickity-page-dots .dot { background-color: white; }";
 
-/***************************************
-         Toast message handler.
- ***************************************/
+/****************************************************
+    Any elements that can be queried once go here.
+          (This is to save computing power)
+ ****************************************************/
+
+// Getting all the user option buttons.
+const uxButtons = document.querySelectorAll("div[class='features']");
+
+// Getting both the non responsive and responsive theme toggle buttons.
+const themeToggleButtons = [uxButtons[0].children[0], uxButtons[1].children[0]];
+
+// Getting both the non responsive and responsive language buttons.
+const languageToggleButtons = [uxButtons[0].children[1], uxButtons[1].children[1]]; // Toggle for language.
+
+// Getting the inquiry form for the reservation page (if cannot be found, this is null, and will be handled properly).
+const inquiryForm = document.querySelector("div.container");
+
+/**************************************************************
+                     Toast message handler.
+ **************************************************************/
 
 // Creating a toast message container and putting a toast message in it and adding it to the body.
-let toastMsgContainerElem = document.createElement("div");
+const toastMsgContainerElem = document.createElement("div");
 toastMsgContainerElem.className = "toast-msg-container";
 toastMsgContainerElem.innerHTML = "<span class='toast-msg'>Msg here</span>";
 document.body.appendChild(toastMsgContainerElem);
@@ -136,64 +152,66 @@ const toastMsgContainer = document.querySelector("div.toast-msg-container");
 const toastMsg = toastMsgContainer.querySelector("span");
 
 // Check for the toast message being displayed or not (this is to prevent spamming).
-var toastShowing = false;
-function toastMessage(message) {
+let toastShowing = false;
+// Message to display, how long to let the user read it.
+function toastMessage(message, readTime) {
     // Indicating to the client js that the toast function is already being ran.
     toastShowing = true;
 
-    // Setting the message to display in the toast.
+    // Setting the message to display in the toast span.
     toastMsg.innerHTML = message;
-    // Setting the opacity to 0.
+
+    // Setting the opacity of its container to 0.
     toastMsgContainer.style.opacity = 0.00;
 
     // Displaying the toast message to the user.
     var fadeIn = setInterval(function() {
-        if (toastMsgContainer.style.opacity <= '1.00') {
+        // If the toast message opacity is not equal to 1... (I don't know why I have to <= 0.99 but otherwise it jumps to 1.01)
+        if (toastMsgContainer.style.opacity <= '0.99') {
+            // Increment it by 0.01.
             toastMsgContainer.style.opacity = parseFloat(toastMsgContainer.style.opacity) + 0.01;
+        // If it is equal to 1...
         } else {
+            // Stop fading it in, it's already complete.
             clearInterval(fadeIn);
         }
     });
 
+    // Wait a second before fading it out (to give it time to fade in, let the user read it, then fade out).
     setTimeout(function() {
+        // Hiding the message from the user.
         var fadeOut = setInterval(function() {
+            // If the toast message opacity is greater than 0...
             if (toastMsgContainer.style.opacity > '0.00') {
+                // Decrement it by 0.01.
                 toastMsgContainer.style.opacity = parseFloat(toastMsgContainer.style.opacity) - 0.01;
+            // If it is equal to 0...
             } else {
+                // Stop fading it out, it's already complete.
                 clearInterval(fadeOut);
+                // Indicating to the client js that the toast is not longer being shown, so the toast function can be executed again.
+                toastShowing = false;
             }
         });
-
-        // Indicating to the client js that the toast is not longer being shown.
-        toastShowing = false;
-    },1000);
+    },readTime);
 }
 
-// Getting all the user option buttons.
-const uxButtons = document.querySelectorAll("div[class='features']");
-
-// Getting both the non responsive and responsive theme toggle buttons.
-const themeToggleButtons = [uxButtons[0].children[0], uxButtons[1].children[0]];
-
-// Getting both the non responsive and responsive language buttons.
-const languageToggleButtons = [uxButtons[0].children[1], uxButtons[1].children[1]]; // Toggle for language.
-
-// Any elements that can be queried once.
-const inquiryForm = document.querySelector("div.container");
-
-/***************************************
-        Dark mode functionality.
- ***************************************/
+/**************************************************************
+                    Dark mode functionality.
+ **************************************************************/
 
 /*
 Checking if the theme was last set to dark. If it was, it will update the theme to be dark. If it was light,
-it doesn't have to do anything because the default class styles are already dark.
+it doesn't have to do anything because the default class styles are already adjusted for light theme.
 
 Also checks if the theme is undefined, because if it is, it means the theme is light, as it's the user's
 first time on the page.
 */
 if (localStorage.theme == "dark") {
-    enableDarkTheme();
+    // Only want to run this once all the elements are loaded in.
+    window.onload = function () {
+        enableDarkTheme();
+    }
 } else if (localStorage.theme == undefined) {
     localStorage.theme = "light";
 }
@@ -206,96 +224,122 @@ themeToggleButtons.forEach((button) => {
             if (localStorage.theme == "light") {
                 // Set the theme to dark theme.
                 enableDarkTheme();
-                // Show a toast message to indicate to the user they just enabled light mode.
-                toastMessage("Dark mode enabled.");
+                // Show a toast message to indicate to the user they just enabled dark mode.
+                toastMessage("Dark mode enabled.", 1000);
             // If the theme is dark theme...
             } else {
                 // Set the theme to light theme.
                 enableLightTheme();
                 // Show a toast message to indicate to the user they just enabled light mode.
-                toastMessage("Light mode enabled.");
+                toastMessage("Light mode enabled.", 1000);
             }
         }
     });
 });
 
-// Enable light theme.
+// This function enables light theme for all pages on the site.
 function enableLightTheme() {
-    // Updating the theme reference to light.
+    // Updating the theme preference in localStorage to light.
     localStorage.theme = "light";
-    // Setting the body background to white.
+
+    /**********************************************************
+        This is where the restyling for light theme begins.
+     **********************************************************/
+
+    // Setting the body's background to white.
     document.body.style.backgroundColor = "white";
-    // Setting both of the corresponding buttons to black (for contrast).
+
+    // Setting both of the corresponding theme buttons to white.
     themeToggleButtons.forEach((button) => {
         button.style.color = 'white';
     });
-    // Setting the textinfo-headings to light mode.
+
+    // Setting the textinfo-headings and their corresponding text to black (for contrast to white body) by removing the dark-mode classes.
     document.querySelectorAll("div[class='textinfo-heading dark-mode-heading']").forEach((heading) => {
         Array.from(heading.parentNode.children).forEach((child) => {
             child.classList == "textinfo-heading dark-mode-heading" ? child.classList = "textinfo-heading" : child.removeAttribute("class");
         });
     });
-    // Setting the main section paragraphs (quotes and text bodies) to black (for contrast) by removing the dark-mode-text class.
+
+    // Setting the main section paragraphs (quotes and text bodies) to black (for contrast to white body) by removing the dark-mode-text class.
     document.querySelectorAll("p:not(#chef-name)").forEach((text) => {
         text.classList == 'dark-mode-text' ? text.removeAttribute("class") : text.classList = text.classList.value.replace(" dark-mode-text", "");
     });
+
     // If the form is on this page...
     if (inquiryForm != null) {
-        // Set its text to black (for contrast) by removing the dark-mode-text class.
+        // Set its text to black (for contrast to white body) by removing the dark-mode-text class.
+        // Form header.
         inquiryForm.querySelector("h3").removeAttribute("class");
+        // Form input labels.
         inquiryForm.querySelectorAll("label").forEach((label) => {
             label.removeAttribute("class");
         });
     }
+
     // If the flickity dots are being used on this page...
     if (document.querySelector("ol.flickity-page-dots") != null) {
         // Remove the dark flickity dot style.
         document.querySelector("head").removeChild(darkDotStyle);
     }
+
     // Setting the toast message to light mode version.
     document.querySelector("span.toast-msg-dark").classList = "toast-msg";
 }
 
-// Enable dark theme.
+// This function enables dark theme for all pages on the site.
 function enableDarkTheme() {
-    // Updating the theme reference to dark.
+    // Updating the theme preference in localStorage to dark.
     localStorage.theme = "dark";
+
+    /**********************************************************
+        This is where the restyling for dark theme begins.
+     **********************************************************/
+
     // Setting the body background to black.
     document.body.style.backgroundColor = "black";
+
     // Setting both of the corresponding buttons to black.
     themeToggleButtons.forEach((button) => {
         button.style.color = 'black';
     });
-    // Setting the textinfo-headings to white (for contrast).
+
+    // Setting the textinfo-headings and their corresponding text to white (for contrast to black background).
     document.querySelectorAll("div[class='textinfo-heading']").forEach((heading) => {
         Array.from(heading.parentNode.children).forEach((child) => {
             child.classList == "textinfo-heading" ? child.classList = "textinfo-heading dark-mode-heading" : child.classList = "dark-mode-text";
         });
     });
-    // Setting the main section paragraphs (quotes and text bodies) to white (for contrast).
+
+    // Setting the main section paragraphs (quotes and text bodies) to white (for contrast to black body) by adding the dark-mode-text class.
     document.querySelectorAll("p:not(#chef-name)").forEach((text) => {
         text.classList == '' ? text.classList = "dark-mode-text" : text.classList += " dark-mode-text";
     });
+
     // If the form is on this page...
     if (inquiryForm != null) {
-        // Set its text to white (for contrast).
+        // Set its text to white (for contrast to black body) by adding the dark-mode-text class.
+        // Form header.
         inquiryForm.querySelector("h3").classList = "dark-mode-text";
+        // Form input labels.
         inquiryForm.querySelectorAll("label").forEach((label) => {
             label.classList = "dark-mode-text";
         });
     }
+
     // If the flickity dots are being used on this page...
     if (document.querySelector("ol.flickity-page-dots") != null) {
         // Add the dark flickity dot style.
         document.querySelector("head").appendChild(darkDotStyle);
     }
+
     // Setting the toast message to dark mode version.
     document.querySelector("span.toast-msg").classList = "toast-msg-dark";
 }
 
-/***************************************
- proof of concept for multiple languages
-***************************************/ 
+/**************************************************************
+        Language functionality (only works on home page).
+ **************************************************************/
 
 // language
 var language = localStorage.getItem("language");
@@ -369,6 +413,11 @@ function updateLanguageOnSelect(newLanguage) {
     updateLanguage(newLanguage);
 
     handleSelectOptions(newLanguage);
+
+    if (!toastShowing) {
+        // Display toast message showing update to language.
+        toastMessage(newLanguage == "en" ? "Changed language preference to English." : "Modification de la préférence linguistique en Français.", 2000);
+    }
 }
 
 function handleSelectOptions(newLanguage) {

@@ -103,8 +103,19 @@ header div.features i {
     user-select: none;
     cursor: pointer;
 }
+
 header div.features i:hover {
     background-color: var(--header-menu-item-color);
+}
+
+header div.features i.fas.fa-moon {
+    height: 49px;
+    background-color: rgb(70, 40, 40);
+    border-radius: 5px;
+}
+
+header div.features i.fas.fa-moon:hover {
+    background-color: rgba(27, 15, 15, 0.5);
 }
 
 header div.features i.select-language {
