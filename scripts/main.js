@@ -106,9 +106,22 @@ window.addEventListener("resize", function () {
               Global user experience functionality. (ie. dark mode)
  *******************************************************************************/
 
-/**************************
-   Toast message handler.
- **************************/
+/*************************************** 
+    Adding the CSS for the themes.
+***************************************/ 
+
+// Styles for the text headings, paragraphs, toast message (both light and dark) and its container.
+const themeStyles = document.createElement("style");
+themeStyles.innerHTML = ".dark-mode-heading { border: 1px solid rgb(226, 226, 226); color: rgb(226, 226, 226); } .dark-mode-text { color: rgb(226, 226, 226); } div.toast-msg-container { position: fixed; width: 100%; display: flex; justify-content: center; margin: auto; bottom: 10%; opacity: 0; user-select: none; } span.toast-msg { padding: 10px; width: wrap-content; background-color: rgba(0, 0, 0, 0.5); color: white; text-align: center; font-size: 20px; border-radius: 5px; } span.toast-msg-dark { padding: 10px; background-color: rgba(255, 255, 255, 0.5); color: black; text-align: center; font-size: 20px; border-radius: 5px; }";
+document.querySelector("head").appendChild(themeStyles);
+// For the flickity dots (separate constant because it will be added and removed from the body depending on the theme state).
+const darkDotStyle = document.createElement("style");
+darkDotStyle.innerHTML = ".flickity-page-dots .dot { background-color: white; }";
+document.querySelector("head").appendChild(darkDotStyle);
+
+/***************************************
+         Toast message handler.
+ ***************************************/
 
 // Creating a toast message container and putting a toast message in it and adding it to the body.
 let toastMsgContainerElem = document.createElement("div");
@@ -168,14 +181,9 @@ const languageToggleButtons = [uxButtons[0].children[1], uxButtons[1].children[1
 // Any elements that can be queried once.
 const inquiryForm = document.querySelector("div.container");
 
-/*****************************
-    Dark mode functionality.
- *****************************/
-
-// Adding the CSS for the themes.
-const themeStyles = document.createElement("style");
-themeStyles.innerHTML = ".dark-mode-heading { border: 1px solid rgb(226, 226, 226); color: rgb(226, 226, 226); } .dark-mode-text { color: rgb(226, 226, 226); } div.toast-msg-container { position: fixed; width: 100%; display: flex; justify-content: center; margin: auto; bottom: 10%; opacity: 0; user-select: none; } span.toast-msg { padding: 10px; width: wrap-content; background-color: rgba(0, 0, 0, 0.5); color: white; text-align: center; font-size: 20px; border-radius: 5px; } span.toast-msg-dark { padding: 10px; background-color: rgba(255, 255, 255, 0.5); color: black; text-align: center; font-size: 20px; border-radius: 5px; }";
-document.querySelector("head").appendChild(themeStyles);
+/***************************************
+        Dark mode functionality.
+ ***************************************/
 
 /*
 Checking if the theme was last set to dark. If it was, it will update the theme to be dark. If it was light,
@@ -231,12 +239,18 @@ function enableLightTheme() {
     document.querySelectorAll("p:not(#chef-name)").forEach((text) => {
         text.classList == 'dark-mode-text' ? text.removeAttribute("class") : text.classList = text.classList.value.replace(" dark-mode-text", "");
     });
-    // If the form is on this page, set its text to black (for contrast) by removing the dark-mode-text class.
+    // If the form is on this page...
     if (inquiryForm != null) {
+        // Set its text to black (for contrast) by removing the dark-mode-text class.
         inquiryForm.querySelector("h3").removeAttribute("class");
         inquiryForm.querySelectorAll("label").forEach((label) => {
             label.removeAttribute("class");
         });
+    }
+    // If the flickity dots are being used on this page...
+    if (document.querySelector("ol.flickity-page-dots") != null) {
+        // Remove the dark flickity dot style.
+        document.querySelector("head").removeChild(darkDotStyle);
     }
     // Setting the toast message to light mode version.
     document.querySelector("span.toast-msg-dark").classList = "toast-msg";
@@ -262,18 +276,26 @@ function enableDarkTheme() {
     document.querySelectorAll("p:not(#chef-name)").forEach((text) => {
         text.classList == '' ? text.classList = "dark-mode-text" : text.classList += " dark-mode-text";
     });
-    // If the form is on this page, set its text to white (for contrast).
+    // If the form is on this page...
     if (inquiryForm != null) {
+        // Set its text to white (for contrast).
         inquiryForm.querySelector("h3").classList = "dark-mode-text";
         inquiryForm.querySelectorAll("label").forEach((label) => {
             label.classList = "dark-mode-text";
         });
     }
+    // If the flickity dots are being used on this page...
+    if (document.querySelector("ol.flickity-page-dots") != null) {
+        // Add the dark flickity dot style.
+        document.querySelector("head").appendChild(darkDotStyle);
+    }
     // Setting the toast message to dark mode version.
     document.querySelector("span.toast-msg").classList = "toast-msg-dark";
 }
 
-// proof of concept for multiple languages
+/***************************************
+ proof of concept for multiple languages
+***************************************/ 
 
 // language
 var language = localStorage.getItem("language");
