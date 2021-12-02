@@ -106,6 +106,56 @@ window.addEventListener("resize", function () {
               Global user experience functionality. (ie. dark mode)
  *******************************************************************************/
 
+/**************************
+   Toast message handler.
+ **************************/
+
+// Creating a toast message container and putting a toast message in it and adding it to the body.
+let toastMsgContainerElem = document.createElement("div");
+toastMsgContainerElem.className = "toast-msg-container";
+toastMsgContainerElem.innerHTML = "<span class='toast-msg'>Msg here</span>";
+document.body.appendChild(toastMsgContainerElem);
+
+// Creating a constant variable of the toast container to interact with
+const toastMsgContainer = document.querySelector("div.toast-msg-container");
+
+// Creating a variable to directly interact with the toast message.
+const toastMsg = toastMsgContainer.querySelector("span");
+
+// Check for the toast message being displayed or not (this is to prevent spamming).
+var toastShowing = false;
+function toastMessage(message) {
+    // Indicating to the client js that the toast function is already being ran.
+    toastShowing = true;
+
+    // Setting the message to display in the toast.
+    toastMsg.innerHTML = message;
+    // Setting the opacity to 0.
+    toastMsgContainer.style.opacity = 0.00;
+
+    // Displaying the toast message to the user.
+    var fadeIn = setInterval(function() {
+        if (toastMsgContainer.style.opacity <= '1.00') {
+            toastMsgContainer.style.opacity = parseFloat(toastMsgContainer.style.opacity) + 0.01;
+        } else {
+            clearInterval(fadeIn);
+        }
+    });
+
+    setTimeout(function() {
+        var fadeOut = setInterval(function() {
+            if (toastMsgContainer.style.opacity > '0.00') {
+                toastMsgContainer.style.opacity = parseFloat(toastMsgContainer.style.opacity) - 0.01;
+            } else {
+                clearInterval(fadeOut);
+            }
+        });
+
+        // Indicating to the client js that the toast is not longer being shown.
+        toastShowing = false;
+    },1000);
+}
+
 // Getting all the user option buttons.
 const uxButtons = document.querySelectorAll("div[class='features']");
 
@@ -115,13 +165,16 @@ const themeToggleButtons = [uxButtons[0].children[0], uxButtons[1].children[0]];
 // Getting both the non responsive and responsive language buttons.
 const languageToggleButtons = [uxButtons[0].children[1], uxButtons[1].children[1]]; // Toggle for language.
 
+// Any elements that can be queried once.
+const inquiryForm = document.querySelector("div.container");
+
 /*****************************
     Dark mode functionality.
  *****************************/
 
 // Adding the CSS for the themes.
 const themeStyles = document.createElement("style");
-themeStyles.innerHTML = ".dark-mode-heading { border: 1px solid rgb(226, 226, 226); color: rgb(226, 226, 226); } .dark-mode-text { color: rgb(226, 226, 226); } div.toast-msg-container { position: fixed; margin: auto; bottom: 10%; } span.toast-msg { padding: 10px; width: wrap-content; background-color: rgba(0, 0, 0, 0.5); color: white; text-align: center; border-radius: 5px; } span.toast-msg-dark { padding: 10px; background-color: rgba(255, 255, 255, 0.5); color: black; text-align: center; border-radius: 5px; }";
+themeStyles.innerHTML = ".dark-mode-heading { border: 1px solid rgb(226, 226, 226); color: rgb(226, 226, 226); } .dark-mode-text { color: rgb(226, 226, 226); } div.toast-msg-container { position: fixed; width: 100%; display: flex; justify-content: center; margin: auto; bottom: 10%; opacity: 0; user-select: none; } span.toast-msg { padding: 10px; width: wrap-content; background-color: rgba(0, 0, 0, 0.5); color: white; text-align: center; font-size: 20px; border-radius: 5px; } span.toast-msg-dark { padding: 10px; background-color: rgba(255, 255, 255, 0.5); color: black; text-align: center; font-size: 20px; border-radius: 5px; }";
 document.querySelector("head").appendChild(themeStyles);
 
 /*
@@ -140,14 +193,20 @@ if (localStorage.theme == "dark") {
 // Event listener to make each of the theme toggle buttons work (both responsive and non responsive).
 themeToggleButtons.forEach((button) => {
     button.addEventListener("click", function() {
-        // If the theme is light theme...
-        if (localStorage.theme == "light") {
-            // Set the theme to dark theme.
-            enableDarkTheme();
-        // If the theme is dark theme...
-        } else {
-            // Set the theme to light theme.
-            enableLightTheme();
+        if (!toastShowing) {
+            // If the theme is light theme...
+            if (localStorage.theme == "light") {
+                // Set the theme to dark theme.
+                enableDarkTheme();
+                // Show a toast message to indicate to the user they just enabled light mode.
+                toastMessage("Dark mode enabled.");
+            // If the theme is dark theme...
+            } else {
+                // Set the theme to light theme.
+                enableLightTheme();
+                // Show a toast message to indicate to the user they just enabled light mode.
+                toastMessage("Light mode enabled.");
+            }
         }
     });
 });
@@ -168,6 +227,19 @@ function enableLightTheme() {
             child.classList == "textinfo-heading dark-mode-heading" ? child.classList = "textinfo-heading" : child.removeAttribute("class");
         });
     });
+    // Setting the main section paragraphs (quotes and text bodies) to black (for contrast) by removing the dark-mode-text class.
+    document.querySelectorAll("p:not(#chef-name)").forEach((text) => {
+        text.classList == 'dark-mode-text' ? text.removeAttribute("class") : text.classList = text.classList.value.replace(" dark-mode-text", "");
+    });
+    // If the form is on this page, set its text to black (for contrast) by removing the dark-mode-text class.
+    if (inquiryForm != null) {
+        inquiryForm.querySelector("h3").removeAttribute("class");
+        inquiryForm.querySelectorAll("label").forEach((label) => {
+            label.removeAttribute("class");
+        });
+    }
+    // Setting the toast message to light mode version.
+    document.querySelector("span.toast-msg-dark").classList = "toast-msg";
 }
 
 // Enable dark theme.
@@ -186,6 +258,19 @@ function enableDarkTheme() {
             child.classList == "textinfo-heading" ? child.classList = "textinfo-heading dark-mode-heading" : child.classList = "dark-mode-text";
         });
     });
+    // Setting the main section paragraphs (quotes and text bodies) to white (for contrast).
+    document.querySelectorAll("p:not(#chef-name)").forEach((text) => {
+        text.classList == '' ? text.classList = "dark-mode-text" : text.classList += " dark-mode-text";
+    });
+    // If the form is on this page, set its text to white (for contrast).
+    if (inquiryForm != null) {
+        inquiryForm.querySelector("h3").classList = "dark-mode-text";
+        inquiryForm.querySelectorAll("label").forEach((label) => {
+            label.classList = "dark-mode-text";
+        });
+    }
+    // Setting the toast message to dark mode version.
+    document.querySelector("span.toast-msg").classList = "toast-msg-dark";
 }
 
 // proof of concept for multiple languages
@@ -278,24 +363,4 @@ function handleSelectOptions(newLanguage) {
         var frResponsive = selectLanguageResponsive.options[1];
         frResponsive.setAttribute("selected", true);
     }
-}
-
-/**************************
-   Toast message handler.
- **************************/
-
-// Creating a toast message container and putting a toast message in it and adding it to the body.
-const toastMsgContainer = document.createElement("div");
-toastMsgContainer.className = "toast-msg-container";
-toastMsgContainer.innerHTML = "<span class='toast-msg'>Msg here</span>";
-document.body.appendChild(toastMsgContainer);
-
-// Creating a variable to directly interact with the toast message.
-const toastMsg = toastMsgContainer.querySelector("span");
-
-function toastMessage(message) {
-    // Setting the message to display in the toast.
-    toastMsg.innerHTML = message;
-    // Displaying the toast message to the user.
-    toastMsgContainer.style.visibility = "visible";
 }
