@@ -112,7 +112,7 @@ window.addEventListener("resize", function () {
 
 // Styles for the text headings, paragraphs, toast message (both light and dark) and its container.
 const themeStyles = document.createElement("style");
-themeStyles.innerHTML = ".dark-mode-heading { border: 1px solid rgb(226, 226, 226); color: rgb(226, 226, 226); } .dark-mode-text { color: rgb(226, 226, 226); } div.toast-msg-container { position: fixed; width: 100%; display: flex; justify-content: center; margin: auto; bottom: 10%; opacity: 0; user-select: none; } span.toast-msg { padding: 10px; width: wrap-content; background-color: rgba(0, 0, 0, 0.5); color: white; text-align: center; font-size: 20px; border-radius: 5px; } span.toast-msg-dark { padding: 10px; background-color: rgba(255, 255, 255, 0.5); color: black; text-align: center; font-size: 20px; border-radius: 5px; }";
+themeStyles.innerHTML = ".dark-mode-heading { border: 1px solid rgb(226, 226, 226); color: rgb(226, 226, 226); } .dark-mode-text { color: rgb(226, 226, 226); } div.toast-msg-container { position: fixed; width: 100%; display: flex; justify-content: center; margin: auto; bottom: 10%; opacity: 0; user-select: none; visibility: hidden; } span.toast-msg { padding: 10px; width: wrap-content; background-color: rgba(0, 0, 0, 0.5); color: white; text-align: center; font-size: 20px; border-radius: 5px; } span.toast-msg-dark { padding: 10px; background-color: rgba(255, 255, 255, 0.5); color: black; text-align: center; font-size: 20px; border-radius: 5px; }";
 document.querySelector("head").appendChild(themeStyles);
 // For the flickity dots (separate constant because it will be added and removed from the body depending on the theme state).
 const darkDotStyle = document.createElement("style");
@@ -161,8 +161,9 @@ function toastMessage(message, readTime) {
     // Setting the message to display in the toast span.
     toastMsg.innerHTML = message;
 
-    // Setting the opacity of its container to 0.
+    // Setting the opacity of its container to 0 (prep for animation) and unhiding it.
     toastMsgContainer.style.opacity = 0.00;
+    toastMsgContainer.style.visibility = "visible";
 
     // Displaying the toast message to the user.
     var fadeIn = setInterval(function() {
@@ -189,6 +190,8 @@ function toastMessage(message, readTime) {
             } else {
                 // Stop fading it out, it's already complete.
                 clearInterval(fadeOut);
+                // Hiding the container again.
+                toastMsgContainer.style.visibility = "hidden";
                 // Indicating to the client js that the toast is not longer being shown, so the toast function can be executed again.
                 toastShowing = false;
             }
