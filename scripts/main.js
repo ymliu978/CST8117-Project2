@@ -338,7 +338,7 @@ function enableDarkTheme() {
 }
 
 /**************************************************************
-        Language functionality (only works on home page).
+    Language functionality (only works site navigation bar).
  **************************************************************/
 
 // language
