@@ -1,8 +1,8 @@
 var languageData = {
     navigation: {
         menu: {
-            en: ["home", "about", "reservation", "menu", "contact"],
-            fr: ["domicile", "À propos", "réservation", "menu", "contact"],
+            en: ["home", "about", "reservation", "menu"],
+            fr: ["domicile", "À propos", "réservation", "menu"],
         },
     },
     home: {
@@ -108,15 +108,17 @@ window.addEventListener("resize", function () {
 
 /************************************************************** 
       Adding the CSS for the themes and aquiring elements.
-**************************************************************/ 
+**************************************************************/
 
 // Styles for the text headings, paragraphs, toast message (both light and dark) and its container.
 const themeStyles = document.createElement("style");
-themeStyles.innerHTML = ".dark-mode-heading { border: 1px solid rgb(226, 226, 226); color: rgb(226, 226, 226); } .dark-mode-text { color: rgb(226, 226, 226); } div.toast-msg-container { position: fixed; width: 100%; display: flex; justify-content: center; margin: auto; bottom: 10%; opacity: 0; user-select: none; visibility: hidden; } span.toast-msg { padding: 10px; width: wrap-content; background-color: rgba(0, 0, 0, 0.5); color: white; text-align: center; font-size: 20px; border-radius: 5px; } span.toast-msg-dark { padding: 10px; background-color: rgba(255, 255, 255, 0.5); color: black; text-align: center; font-size: 20px; border-radius: 5px; }";
+themeStyles.innerHTML =
+    ".dark-mode-heading { border: 1px solid rgb(226, 226, 226); color: rgb(226, 226, 226); } .dark-mode-text { color: rgb(226, 226, 226); } div.toast-msg-container { position: fixed; width: 100%; display: flex; justify-content: center; margin: auto; bottom: 10%; opacity: 0; user-select: none; visibility: hidden; } span.toast-msg { padding: 10px; width: wrap-content; background-color: rgba(0, 0, 0, 0.5); color: white; text-align: center; font-size: 20px; border-radius: 5px; } span.toast-msg-dark { padding: 10px; background-color: rgba(255, 255, 255, 0.5); color: black; text-align: center; font-size: 20px; border-radius: 5px; }";
 document.querySelector("head").appendChild(themeStyles);
 // For the flickity dots (separate constant because it will be added and removed from the body depending on the theme state).
 const darkDotStyle = document.createElement("style");
-darkDotStyle.innerHTML = ".flickity-viewport { background-color: rgb(20, 20, 20); } .flickity-page-dots .dot { background-color: white; }";
+darkDotStyle.innerHTML =
+    ".flickity-viewport { background-color: rgb(20, 20, 20); } .flickity-page-dots .dot { background-color: white; }";
 
 /****************************************************
     Any elements that can be queried once go here.
@@ -130,7 +132,10 @@ const uxButtons = document.querySelectorAll("div[class='features']");
 const themeToggleButtons = [uxButtons[0].children[0], uxButtons[1].children[0]];
 
 // Getting both the non responsive and responsive language buttons.
-const languageToggleButtons = [uxButtons[0].children[1], uxButtons[1].children[1]]; // Toggle for language.
+const languageToggleButtons = [
+    uxButtons[0].children[1],
+    uxButtons[1].children[1],
+]; // Toggle for language.
 
 // Getting the inquiry form for the reservation page (if cannot be found, this is null, and will be handled properly).
 const inquiryForm = document.querySelector("div.container");
@@ -162,16 +167,17 @@ function toastMessage(message, readTime) {
     toastMsg.innerHTML = message;
 
     // Setting the opacity of its container to 0 (prep for animation) and unhiding it.
-    toastMsgContainer.style.opacity = 0.00;
+    toastMsgContainer.style.opacity = 0.0;
     toastMsgContainer.style.visibility = "visible";
 
     // Displaying the toast message to the user.
-    var fadeIn = setInterval(function() {
+    var fadeIn = setInterval(function () {
         // If the toast message opacity is not equal to 1... (I don't know why I have to <= 0.99 but otherwise it jumps to 1.01)
-        if (toastMsgContainer.style.opacity <= '0.99') {
+        if (toastMsgContainer.style.opacity <= "0.99") {
             // Increment it by 0.01.
-            toastMsgContainer.style.opacity = parseFloat(toastMsgContainer.style.opacity) + 0.01;
-        // If it is equal to 1...
+            toastMsgContainer.style.opacity =
+                parseFloat(toastMsgContainer.style.opacity) + 0.01;
+            // If it is equal to 1...
         } else {
             // Stop fading it in, it's already complete.
             clearInterval(fadeIn);
@@ -179,14 +185,15 @@ function toastMessage(message, readTime) {
     });
 
     // Wait a second before fading it out (to give it time to fade in, let the user read it, then fade out).
-    setTimeout(function() {
+    setTimeout(function () {
         // Hiding the message from the user.
-        var fadeOut = setInterval(function() {
+        var fadeOut = setInterval(function () {
             // If the toast message opacity is greater than 0...
-            if (toastMsgContainer.style.opacity > '0.00') {
+            if (toastMsgContainer.style.opacity > "0.00") {
                 // Decrement it by 0.01.
-                toastMsgContainer.style.opacity = parseFloat(toastMsgContainer.style.opacity) - 0.01;
-            // If it is equal to 0...
+                toastMsgContainer.style.opacity =
+                    parseFloat(toastMsgContainer.style.opacity) - 0.01;
+                // If it is equal to 0...
             } else {
                 // Stop fading it out, it's already complete.
                 clearInterval(fadeOut);
@@ -196,7 +203,7 @@ function toastMessage(message, readTime) {
                 toastShowing = false;
             }
         });
-    },readTime);
+    }, readTime);
 }
 
 /**************************************************************
@@ -214,14 +221,14 @@ if (localStorage.theme == "dark") {
     // Only want to run this once all the elements are loaded in.
     window.onload = function () {
         enableDarkTheme();
-    }
+    };
 } else if (localStorage.theme == undefined) {
     localStorage.theme = "light";
 }
 
 // Event listener to make each of the theme toggle buttons work (both responsive and non responsive).
 themeToggleButtons.forEach((button) => {
-    button.addEventListener("click", function() {
+    button.addEventListener("click", function () {
         if (!toastShowing) {
             // If the theme is light theme...
             if (localStorage.theme == "light") {
@@ -229,7 +236,7 @@ themeToggleButtons.forEach((button) => {
                 enableDarkTheme();
                 // Show a toast message to indicate to the user they just enabled dark mode.
                 toastMessage("Dark mode enabled.", 1000);
-            // If the theme is dark theme...
+                // If the theme is dark theme...
             } else {
                 // Set the theme to light theme.
                 enableLightTheme();
@@ -254,19 +261,28 @@ function enableLightTheme() {
 
     // Setting both of the corresponding theme buttons to white.
     themeToggleButtons.forEach((button) => {
-        button.style.color = 'white';
+        button.style.color = "white";
     });
 
     // Setting the textinfo-headings and their corresponding text to black (for contrast to white body) by removing the dark-mode classes.
-    document.querySelectorAll("div[class='textinfo-heading dark-mode-heading']").forEach((heading) => {
-        Array.from(heading.parentNode.children).forEach((child) => {
-            child.classList == "textinfo-heading dark-mode-heading" ? child.classList = "textinfo-heading" : child.removeAttribute("class");
+    document
+        .querySelectorAll("div[class='textinfo-heading dark-mode-heading']")
+        .forEach((heading) => {
+            Array.from(heading.parentNode.children).forEach((child) => {
+                child.classList == "textinfo-heading dark-mode-heading"
+                    ? (child.classList = "textinfo-heading")
+                    : child.removeAttribute("class");
+            });
         });
-    });
 
     // Setting the main section paragraphs (quotes and text bodies) to black (for contrast to white body) by removing the dark-mode-text class.
     document.querySelectorAll("p:not(#chef-name)").forEach((text) => {
-        text.classList == 'dark-mode-text' ? text.removeAttribute("class") : text.classList = text.classList.value.replace(" dark-mode-text", "");
+        text.classList == "dark-mode-text"
+            ? text.removeAttribute("class")
+            : (text.classList = text.classList.value.replace(
+                  " dark-mode-text",
+                  ""
+              ));
     });
 
     // If the form is on this page...
@@ -304,19 +320,25 @@ function enableDarkTheme() {
 
     // Setting both of the corresponding buttons to black.
     themeToggleButtons.forEach((button) => {
-        button.style.color = 'black';
+        button.style.color = "black";
     });
 
     // Setting the textinfo-headings and their corresponding text to white (for contrast to black background).
-    document.querySelectorAll("div[class='textinfo-heading']").forEach((heading) => {
-        Array.from(heading.parentNode.children).forEach((child) => {
-            child.classList == "textinfo-heading" ? child.classList = "textinfo-heading dark-mode-heading" : child.classList = "dark-mode-text";
+    document
+        .querySelectorAll("div[class='textinfo-heading']")
+        .forEach((heading) => {
+            Array.from(heading.parentNode.children).forEach((child) => {
+                child.classList == "textinfo-heading"
+                    ? (child.classList = "textinfo-heading dark-mode-heading")
+                    : (child.classList = "dark-mode-text");
+            });
         });
-    });
 
     // Setting the main section paragraphs (quotes and text bodies) to white (for contrast to black body) by adding the dark-mode-text class.
     document.querySelectorAll("p:not(#chef-name)").forEach((text) => {
-        text.classList == '' ? text.classList = "dark-mode-text" : text.classList += " dark-mode-text";
+        text.classList == ""
+            ? (text.classList = "dark-mode-text")
+            : (text.classList += " dark-mode-text");
     });
 
     // If the form is on this page...
@@ -419,7 +441,12 @@ function updateLanguageOnSelect(newLanguage) {
 
     if (!toastShowing) {
         // Display toast message showing update to language.
-        toastMessage(newLanguage == "en" ? "Changed language preference to English." : "Modification de la préférence linguistique en Français.", 2000);
+        toastMessage(
+            newLanguage == "en"
+                ? "Changed language preference to English."
+                : "Modification de la préférence linguistique en Français.",
+            2000
+        );
     }
 }
 

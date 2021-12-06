@@ -1,40 +1,40 @@
-
-
 .carousel {
-  background: #EEE;
+    background: #eee;
 }
 
 .carousel-cell {
-  width: 40%;
-  height: 55vh;
-  margin-right: 1rem;
-  background: rgba(70, 40, 40, 0.9);
-  border-radius: 0.2rem;
-  counter-increment: gallery-cell;
+    object-fit: cover;
+    width: 40%;
+    height: 55vh;
+    margin-right: 1rem;
+    background: rgba(70, 40, 40, 0.9);
+    border-radius: 0.2rem;
+    counter-increment: gallery-cell;
 }
 
 /* cell number */
 .carousel-cell:before {
-  display: block;
-  text-align: center;
-  content: counter(gallery-cell);
-  line-height: 20rem;
-  font-size: 8rem;
-  color: white;
+    display: block;
+    text-align: center;
+    content: counter(gallery-cell);
+    line-height: 20rem;
+    font-size: 8rem;
+    color: white;
 }
-  
-  @media screen and ( min-width: 768px ) {
-    /* half-width cells for larger devices */
-    .gallery-cell { width: 50%; }
-    /* resize form */
-    .container{
-        max-width: 720px
-      }
-  }
 
+@media screen and (min-width: 768px) {
+    /* half-width cells for larger devices */
+    .gallery-cell {
+        width: 50%;
+    }
+    /* resize form */
+    .container {
+        max-width: 720px;
+    }
+}
 
 /* form */
-.container h3{
+.container h3 {
     text-transform: uppercase;
     font-size: 2.5rem;
     font-weight: 200;
@@ -47,11 +47,11 @@
     display: block;
 }
 
-.form-input{
+.form-input {
     margin: 0 1rem 2rem 1rem;
 }
 
-input{
+input {
     width: 100%;
     font-weight: 200;
     font-size: 1.5rem;
@@ -64,9 +64,9 @@ label {
     align-items: center;
     font-size: 1.125rem;
     margin-bottom: 0.5rem;
-   }
+}
 
-textarea{
+textarea {
     width: 100%;
     min-height: 6rem;
     resize: vertical;
@@ -74,16 +74,23 @@ textarea{
     border-radius: 0.5rem;
     border: 1.5px solid silver;
     margin-bottom: 1rem;
-   }
+}
 
-#submit{
+#submit {
     display: block;
     width: 30%;
     margin: 0 auto;
     padding: 0.8rem;
-    background: rgba(70, 40, 40, 0.9);;
+    background: rgba(70, 40, 40, 0.9);
     color: white;
     border-radius: 0.5rem;
     cursor: pointer;
     border: none;
-   }
+}
+
+@media screen and (max-width: 768px) {
+    .carousel-cell {
+        width: 100%;
+        object-fit: cover;
+    }
+}

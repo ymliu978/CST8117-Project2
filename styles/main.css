@@ -94,7 +94,12 @@ header nav ul li a {
 }
 
 header div.features {
+    display: flex;
     color: white;
+    height: 100%;
+    width: 202px;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 header div.features i {
@@ -102,6 +107,7 @@ header div.features i {
     font-size: 1.6em;
     user-select: none;
     cursor: pointer;
+    margin-right: 0.25rem;
 }
 
 header div.features i:hover {
