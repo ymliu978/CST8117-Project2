@@ -6,7 +6,6 @@
     <a href="https://peter-logans-steakhouse.netlify.app/"><strong>View Live Demo »</strong></a>
     <br />
     <br />
-    <br />
   </h3>
 </div>
 
