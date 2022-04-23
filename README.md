@@ -1,4 +1,4 @@
-<div align="center">
+<div align="center" id="top">
   <h1 align="center">Peter Logan's Steakhouse</h3>
   <h3 align="center">
     A responsive restaurant website built from scratch!
